@@ -9,7 +9,9 @@ class Task extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      things: []
+      things: [],
+      good: 0,
+      bad: 0
     };
   }
 
@@ -21,6 +23,9 @@ class Task extends Component {
           this.setState({
             isLoaded: true,
             things: result,
+            good: result.filter(thing => thing.title.startsWith("good")).length,
+            bad: result.filter(thing => thing.title.startsWith("bad")).length,
+
           });
 
         },
@@ -34,20 +39,12 @@ class Task extends Component {
           });
         },
 
-        console.log(this.state.things),
+        //console.log(this.state.things),
       )
   }
 
   render() {
-    const { error, isLoaded, things } = this.state;
-    let a =[];
-    let good, bad = 0;
-    good = things.filter(thing => thing.title.startsWith("good")).length;
-    bad = things.filter(thing => thing.title.startsWith("bad")).length;
-
-    a.push(good);
-    a.push(bad);
-    console.log(a);
+    const { error, isLoaded, things, good, bad } = this.state;
 
     const data = {
     labels: ['Good', 'Bad'],
@@ -59,15 +56,15 @@ class Task extends Component {
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
-        data: a
+        data: [good, bad]
       }
     ]
   };
 
   const options = {scales:
     {
-      yAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: 5} }],
-      xAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: 5} }]
+      yAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: 10} }],
+      xAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: 6} }]
     }
 };
 
