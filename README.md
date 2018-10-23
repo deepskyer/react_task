@@ -4,23 +4,23 @@
 
 3.src文件夹中有一个index.js。这是将react插入index.html root标签处的js方法。这个方法中有个参数是<App/>, 也就是说将App这个component插入index的root标签处
 
-ReactDOM.render(<App/>, document.getElementById('root'))
+```ReactDOM.render(<App/>, document.getElementById('root'))```
 
 4. App component.
 每个component要引入React和Component模块。
-import React, { Component }  from 'react';
+```import React, { Component }  from 'react';```
 
 每个component可以嵌入自己的css样式。
-import './style/App.css';
+```import './style/App.css';```
 
 每个component还可以嵌入其它的component。
-import Task from './Task';
+```import Task from './Task';```
 
 
 建立一个名为App的class extends Component. export 这个class可以供其它地方使用。<App/>
 
 5. Task component using rest api.
-
+```
 import React, { Component }  from 'react';
 import './style/task.css';
 
@@ -78,3 +78,4 @@ class Task extends Component {
 }
 
 export default Task;
+```
