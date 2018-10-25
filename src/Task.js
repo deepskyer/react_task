@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
 import {Bar} from 'react-chartjs-2';
+import Rating from './Rating'
 
 import './style/task.css';
 
@@ -11,12 +12,15 @@ class Task extends Component {
       isLoaded: false,
       things: [],
       good: 0,
-      bad: 0
+      bad: 0,
+      count: 0
     };
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
+
+
     fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
       .then(res => res.json())
       .then(
@@ -24,6 +28,7 @@ class Task extends Component {
           this.setState({
             isLoaded: true,
             things: result,
+            count: this.state.count+1,
             good: result.filter(thing => thing.title.startsWith("good")).length,
             bad: result.filter(thing => thing.title.startsWith("bad")).length,
 
@@ -31,7 +36,7 @@ class Task extends Component {
 
         },
 
-
+        console.log("reload times: " + this.state.count),
 
         (error) => {
           this.setState({
@@ -45,7 +50,7 @@ class Task extends Component {
   }
 
   render() {
-    const { error, isLoaded, things, good, bad } = this.state;
+    const { error, isLoaded, things, good, bad, count } = this.state;
 
     const data = {
     labels: ['Good', 'Bad'],
@@ -80,11 +85,12 @@ class Task extends Component {
         <div className="task">
 
         <button onClick={this.componentDidMount}>reload</button>
-        <h4>This is a task component</h4>
+        <h4>This is a task component</h4><h5>loaded times: {count}</h5>
         <ul>
           {things.map(thing => (
             <li key={thing.title}>
               {thing.title}: {thing.content}
+              <Rating name={thing.title}/>
             </li>
           ))}
         </ul>
