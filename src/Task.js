@@ -13,6 +13,7 @@ class Task extends Component {
       good: 0,
       bad: 0
     };
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
@@ -77,6 +78,8 @@ class Task extends Component {
 
       return (
         <div className="task">
+
+        <button onClick={this.componentDidMount}>reload</button>
         <h4>This is a task component</h4>
         <ul>
           {things.map(thing => (
@@ -88,7 +91,9 @@ class Task extends Component {
 
         <h4>There are {things.length} tasks.</h4>
         There are {good} good tasks, There are {bad} bad tasks.
-        <Bar data={data} options={options}/>
+        <div className="barChart" >
+        <Bar data={data} width={50} height={50} options={options} />
+        </div>
 
         </div>
 
