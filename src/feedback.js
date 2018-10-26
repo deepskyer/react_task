@@ -1,17 +1,15 @@
 import React, { Component }  from 'react';
+import Rating from './Rating'
 
 import './style/task.css';
 
-class Task extends Component {
+class feedback extends Component {
   constructor() {
     super();
     this.state = {
       error: null,
       isLoaded: false,
-      things: [],
-      good: 0,
-      bad: 0,
-      count: 0
+      things: []
     };
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -26,15 +24,11 @@ class Task extends Component {
           this.setState({
             isLoaded: true,
             things: result,
-            count: this.state.count+1,
-            good: result.filter(thing => thing.title.startsWith("good")).length,
-            bad: result.filter(thing => thing.title.startsWith("bad")).length,
 
           });
 
         },
 
-        console.log("reload times: " + this.state.count),
 
         (error) => {
           this.setState({
@@ -48,7 +42,7 @@ class Task extends Component {
   }
 
   render() {
-    const { error, isLoaded, things } = this.state;
+    const { error, isLoaded, things} = this.state;
 
 
     if (error) {
@@ -60,11 +54,13 @@ class Task extends Component {
 
       return (
         <div className="task">
-        <h4>This is the list of all task</h4>
+
+        <h4>This is the feedback component</h4>
         <ul>
           {things.map(thing => (
             <li key={thing.title}>
-              {thing.title}
+              {thing.title}: {thing.content}
+              <Rating name={thing.title}/>
             </li>
           ))}
         </ul>
@@ -78,4 +74,4 @@ class Task extends Component {
   }
 }
 
-export default Task;
+export default feedback;

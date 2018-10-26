@@ -1,8 +1,9 @@
 import React, { Component }  from 'react';
+import {Bar} from 'react-chartjs-2';
 
-import './style/task.css';
+// import './style/statistic.css';
 
-class Task extends Component {
+class statistic extends Component {
   constructor() {
     super();
     this.state = {
@@ -43,13 +44,33 @@ class Task extends Component {
           });
         },
 
-        //console.log(this.state.things),
       )
   }
 
   render() {
-    const { error, isLoaded, things } = this.state;
+    const { error, isLoaded, things, good, bad, count } = this.state;
 
+    const data = {
+    labels: ['Good', 'Bad'],
+    datasets: [
+      {
+        label: 'My tasks',
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+        hoverBorderColor: 'rgba(255,99,132,1)',
+        data: [good, bad]
+      }
+    ]
+  };
+
+  const options = {scales:
+    {
+      yAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: 10} }],
+      xAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: 6} }]
+    }
+};
 
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -60,15 +81,15 @@ class Task extends Component {
 
       return (
         <div className="task">
-        <h4>This is the list of all task</h4>
-        <ul>
-          {things.map(thing => (
-            <li key={thing.title}>
-              {thing.title}
-            </li>
-          ))}
-        </ul>
 
+        <button onClick={this.componentDidMount}>reload</button>
+        <h4>This is a statistic component</h4><h5>loaded times: {count}</h5>
+
+        <h4>There are {things.length} tasks.</h4>
+        There are {good} good tasks, There are {bad} bad tasks.
+        <div className="barChart" >
+        <Bar data={data} width={50} height={50} options={options} />
+        </div>
 
         </div>
 
@@ -78,4 +99,4 @@ class Task extends Component {
   }
 }
 
-export default Task;
+export default statistic;
