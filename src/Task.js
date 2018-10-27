@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-
+import { Link } from "react-router-dom";
 import './style/task.css';
 
 class Task extends Component {
@@ -60,18 +60,22 @@ class Task extends Component {
 
       return (
         <div className="task">
+
         <h4>This is the list of all task</h4>
         <ul>
           {things.map(thing => (
             <li key={thing.title}>
-              {thing.title}
+              <Link to={"task/" + thing._id}>{thing.title}</Link>
             </li>
           ))}
         </ul>
 
 
-        </div>
 
+        <hr />
+
+
+        </div>
 
       );
     }
