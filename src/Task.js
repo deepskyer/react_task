@@ -1,4 +1,6 @@
 import React, { Component }  from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Taskview from './Taskview';
 
 import './style/task.css';
 
@@ -59,20 +61,31 @@ class Task extends Component {
 
 
       return (
+        <Router>
         <div className="task">
         <h4>This is the list of all task</h4>
         <ul>
           {things.map(thing => (
             <li key={thing.title}>
-              {thing.title}
+              <Link to={"/task/"+thing._id}>{thing.title}</Link>
             </li>
+
+
           ))}
         </ul>
+
+<hr />
+
+    <Route exact path="/task/:id" component={Taskview} />
+
+
+
 
 
         </div>
 
 
+        </Router>
       );
     }
   }

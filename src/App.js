@@ -4,6 +4,7 @@ import './style/App.css';
 import Task from './Task';
 import statistic from './statistic';
 import feedback from './feedback';
+import dashboard from './dashboard';
 
 
 
@@ -29,6 +30,7 @@ render(){
         </ul>
 
         <hr />
+        <Route exact path="/" component={dashboard} />
         <Route path="/tasks" component={Task} />
         <Route path="/feedback" component={feedback} />
         <Route path="/statistic" component={statistic} />
@@ -36,7 +38,11 @@ render(){
     </Router>
 
     );
+
 }
+
+
+
 }
 
 export default App;
