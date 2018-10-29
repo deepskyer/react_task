@@ -57,10 +57,10 @@ Title: {thing.title}
 Content: {thing.content}
 </li>
 <li>
-Created At: {thing.createdAt.substring(0, 9)}
+Created At: {thing.createdAt.substring(0, 10)}
 </li>
 <li>
-Updated At: {thing.updatedAt.substring(0, 9)}
+Updated At: {thing.updatedAt.substring(0, 10)}
 </li>
 </ul>
 

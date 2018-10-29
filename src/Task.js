@@ -1,12 +1,5 @@
 import React, { Component }  from 'react';
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Taskview from './Taskview';
-
-=======
 import { Link } from "react-router-dom";
->>>>>>> 43be786cb8044269886ed9d16d5dc7d63560228e
-import './style/task.css';
 
 class Task extends Component {
   constructor() {
@@ -65,39 +58,24 @@ class Task extends Component {
 
 
       return (
-        <Router>
         <div className="task">
 
         <h4>This is the list of all task</h4>
         <ul>
           {things.map(thing => (
             <li key={thing.title}>
-<<<<<<< HEAD
               <Link to={"/task/"+thing._id}>{thing.title}</Link>
-=======
-              <Link to={"task/" + thing._id}>{thing.title}</Link>
->>>>>>> 43be786cb8044269886ed9d16d5dc7d63560228e
             </li>
-
-
           ))}
         </ul>
 
 <hr />
 
-    <Route exact path="/task/:id" component={Taskview} />
-
-
-
-
-
-
-        <hr />
 
 
         </div>
 
-        </Router>
+
       );
     }
   }
