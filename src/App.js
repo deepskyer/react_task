@@ -33,11 +33,15 @@ render(){
         </ul>
 
         <hr />
+
+
         <Route exact path="/" component={Home} />
         <Route path="/tasks" component={Task} />
         <Route path="/feedback" component={feedback} />
         <Route path="/statistic" component={statistic} />
         <Route path="/task/:id" component={Taskview} />
+
+
       </div>
     </Router>
 
