@@ -7,7 +7,7 @@ class Home extends React.Component {
   render() {
     return (
 <div>
-This is Dashboard.
+Please add a new task to review.
 
   <Edit />
 </div>

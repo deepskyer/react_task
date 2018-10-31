@@ -25,7 +25,7 @@ render(){
             <Link to="/tasks">Tasks</Link>
           </li>
           <li>
-            <Link to="/feedback">Feedback</Link>
+            <Link to="/feedback">Review</Link>
           </li>
           <li>
             <Link to="/statistic">Statistic</Link>

@@ -55,7 +55,7 @@ class feedback extends Component {
       return (
         <div className="task">
 
-        <h4>This is the feedback component</h4>
+        <h4>This is the review component</h4>
         <ul>
           {things.slice(0).reverse().map(thing => (
             <li key={thing._id}>

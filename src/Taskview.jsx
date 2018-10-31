@@ -9,6 +9,7 @@ class Taskview extends React.Component {
       isLoaded: false,
       thing: null,
       toTasklist: false,
+      toReview: false
     };
   }
 
@@ -39,6 +40,7 @@ class Taskview extends React.Component {
       )
   }
 
+
   deleteHandler=(event)=> {
   console.log("delete");
   fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.state.thing._id, {
@@ -49,10 +51,17 @@ class Taskview extends React.Component {
       });
   }
 
+  reviewHandler=(event)=>{
+    this.setState({
+      toReview: true,
+    });
+  }
+
   render() {
-    const { error, isLoaded, thing, toTasklist} = this.state;
+    const { error, isLoaded, thing, toTasklist, toReview} = this.state;
 
 if(toTasklist){return <Redirect to='/tasks' />}
+else if (toReview) {return <Redirect to='/feedback' />}
     else if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -82,7 +91,7 @@ Updated At: {thing.updatedAt.substring(0, 10)}
 </li>
 </ul>
 
-<button onClick={this.deleteHandler}>Delete</button>
+<button onClick={this.deleteHandler}>Delete</button>  <button onClick={this.reviewHandler}>Review</button>
 
 
         <hr />
