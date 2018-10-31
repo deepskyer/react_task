@@ -15,6 +15,10 @@ class Task extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
+componentWillMount(){
+    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
+}
+
   componentDidMount() {
 
 
@@ -63,7 +67,7 @@ class Task extends Component {
         <h4>This is the list of all task</h4>
         <ul>
           {things.map(thing => (
-            <li key={thing.title}>
+            <li key={thing._id}>
               <Link to={"/task/"+thing._id}>{thing.title}</Link>
             </li>
           ))}

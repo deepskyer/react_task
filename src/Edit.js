@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 class Edit extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: null,
-      content:null
-
+      content:null,
+      toTasklist: false,
     } ;
     this.clickhandler = this.clickhandler.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -27,9 +27,9 @@ class Edit extends Component {
     title: this.state.title,
     content: this.state.content,
   })
-})
+});
 
-this.props.history.push('/tasks');
+this.setState({toTasklist: true});
   }
 
   handleTitleChange(event) {
@@ -40,6 +40,10 @@ handleContentChange(event) {
 }
 
   render() {
+    if (this.state.toTasklist === true) {
+      return <Redirect to='/tasks' />
+    }
+
     return (
       <div>
           <form>
@@ -61,4 +65,4 @@ handleContentChange(event) {
 
 }
 
-export default withRouter(Edit);
+export default Edit;

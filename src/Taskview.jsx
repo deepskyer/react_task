@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 class Taskview extends React.Component {
   constructor() {
@@ -7,8 +8,11 @@ class Taskview extends React.Component {
       error: null,
       isLoaded: false,
       thing: null,
+      toTasklist: false,
     };
   }
+
+
 
   componentDidMount() {
 
@@ -35,11 +39,21 @@ class Taskview extends React.Component {
       )
   }
 
+  deleteHandler=(event)=> {
+  console.log("delete");
+  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.state.thing._id, {
+  			method: 'DELETE'
+  		});
+      this.setState({
+        toTasklist: true,
+      });
+  }
+
   render() {
-    const { error, isLoaded, thing } = this.state;
+    const { error, isLoaded, thing, toTasklist} = this.state;
 
-
-    if (error) {
+if(toTasklist){return <Redirect to='/tasks' />}
+    else if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
@@ -64,6 +78,7 @@ Updated At: {thing.updatedAt.substring(0, 10)}
 </li>
 </ul>
 
+<button onClick={this.deleteHandler}>Delete</button>
 
 
         <hr />
