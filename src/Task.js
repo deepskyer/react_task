@@ -66,7 +66,7 @@ componentWillMount(){
 
         <h4>This is the list of all task</h4>
         <ul>
-          {things.map(thing => (
+          {things.slice(0).reverse().map(thing => (
             <li key={thing._id}>
               <Link to={"/task/"+thing._id}>{thing.title}</Link>
             </li>

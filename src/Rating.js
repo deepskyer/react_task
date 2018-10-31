@@ -4,7 +4,13 @@ class Rating extends React.Component {
 
   constructor(props) {
       super(props);
-      this.state = {rating: "", message: "not rate yet"};
+      this.state = {
+        rating: "",
+        message: "not rate yet",
+        title: this.props.title,
+        content:this.props.content,
+        toTasklist: false,
+      };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -23,6 +29,18 @@ class Rating extends React.Component {
           message: "you rate " + this.state.rating + " for this task.",
         });
         console.log("you rate " + this.state.rating + " for this task.");
+        fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.props.id, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: this.state.title,
+        content: this.state.content,
+        rating: this.state.rating
+      })
+    });
       }
 
 
@@ -31,11 +49,11 @@ class Rating extends React.Component {
 <div>
       <form onSubmit={this.handleSubmit}>
       <label>Please rate the task {this.props.name}. </label>
-          <input type="radio" name="pain" value="1" onChange={this.handleChange}/>1
-          <input type="radio" name="pain" value="2" onChange={this.handleChange}/>2
-          <input type="radio" name="pain" value="3" onChange={this.handleChange}/>3
-          <input type="radio" name="pain" value="4" onChange={this.handleChange}/>4
-          <input type="radio" name="pain" value="5" onChange={this.handleChange}/>5
+          <input type="radio" name="pain" value="1" defaultChecked={this.props.rating === 1} onChange={this.handleChange}/>1
+          <input type="radio" name="pain" value="2" defaultChecked={this.props.rating === 2} onChange={this.handleChange}/>2
+          <input type="radio" name="pain" value="3" defaultChecked={this.props.rating === 3} onChange={this.handleChange}/>3
+          <input type="radio" name="pain" value="4" defaultChecked={this.props.rating === 4} onChange={this.handleChange}/>4
+          <input type="radio" name="pain" value="5" defaultChecked={this.props.rating === 5} onChange={this.handleChange}/>5
           <input type="submit" value="Save"/>
       </form>
 

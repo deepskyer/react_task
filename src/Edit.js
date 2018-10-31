@@ -39,6 +39,11 @@ handleContentChange(event) {
    this.setState({content: event.target.value});
 }
 
+
+checkRating(event){
+    console.log(this.props.fen);
+}
+
   render() {
     if (this.state.toTasklist === true) {
       return <Redirect to='/tasks' />
@@ -57,10 +62,12 @@ handleContentChange(event) {
                   <input type="text" style={{width: "370px"}} onChange={this.handleContentChange}/>
                 </label>
               <br />
-            <button onClick={this.clickhandler}>Submit</button>
+              <button onClick={this.clickhandler}>Submit</button>
+
           </form>
       </div>
     );
+
   }
 
 }

@@ -57,10 +57,10 @@ class feedback extends Component {
 
         <h4>This is the feedback component</h4>
         <ul>
-          {things.map(thing => (
+          {things.slice(0).reverse().map(thing => (
             <li key={thing._id}>
               {thing.title}: {thing.content}
-              <Rating name={thing.title}/>
+              <Rating name={thing.title} rating={thing.rating} id={thing._id} title={thing.title} content={thing.content}/>
             </li>
           ))}
         </ul>

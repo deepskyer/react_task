@@ -59,6 +59,7 @@ if(toTasklist){return <Redirect to='/tasks' />}
       return <div>Loading...</div>;
     } else {
 
+
       return (
         <div className="task">
 
@@ -69,6 +70,9 @@ Title: {thing.title}
 </li>
 <li>
 Content: {thing.content}
+</li>
+<li>
+Rating: {thing.rating}
 </li>
 <li>
 Created At: {thing.createdAt.substring(0, 10)}
