@@ -12,7 +12,9 @@ class statistic extends Component {
       things: [],
       good: 0,
       bad: 0,
-      count: 0
+      unrated: 0,
+      count: 0,
+      limit: 10
     };
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -28,9 +30,10 @@ class statistic extends Component {
             isLoaded: true,
             things: result,
             count: this.state.count+1,
-            good: result.filter(thing => thing.title.startsWith("good")).length,
-            bad: result.filter(thing => thing.title.startsWith("bad")).length,
-
+            good: result.filter(thing => thing.rating >= 6).length,
+            bad: result.filter(thing => thing.rating < 6).length,
+            unrated: result.filter(thing => thing.rating === null).length,
+            limit: result.length,
           });
 
         },
@@ -48,10 +51,10 @@ class statistic extends Component {
   }
 
   render() {
-    const { error, isLoaded, things, good, bad, count } = this.state;
+    const { error, isLoaded, things, good, bad, unrated, count } = this.state;
 
     const data = {
-    labels: ['Good', 'Bad'],
+    labels: ['Good', 'Bad', 'Unrated'],
     datasets: [
       {
         label: 'My tasks',
@@ -60,14 +63,14 @@ class statistic extends Component {
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [good, bad]
+        data: [good, bad, unrated]
       }
     ]
   };
 
   const options = {scales:
     {
-      yAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: 10} }],
+      yAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: this.state.limit} }],
       xAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: 6} }]
     }
 };
@@ -86,7 +89,7 @@ class statistic extends Component {
         <h4>This is a statistic component</h4><h5>loaded times: {count}</h5>
 
         <h4>There are {things.length} tasks.</h4>
-        There are {good} good tasks, There are {bad} bad tasks.
+        There are {good} good tasks, there are {bad} bad tasks and {unrated} unrated tasks.
         <div className="barChart" >
         <Bar data={data} width={50} height={50} options={options} />
         </div>

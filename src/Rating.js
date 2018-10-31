@@ -6,7 +6,7 @@ class Rating extends React.Component {
       super(props);
       this.state = {
         rating: "",
-        message: "not rate yet",
+        message: this.props.rating?"rated:" + this.props.rating : "not rate yet",
         title: this.props.title,
         content:this.props.content,
         toTasklist: false,
@@ -26,7 +26,7 @@ class Rating extends React.Component {
      handleSubmit(event) {
         event.preventDefault();
         this.setState({
-          message: "you rate " + this.state.rating + " for this task.",
+          message: "Rated:  " + this.state.rating,
         });
         console.log("you rate " + this.state.rating + " for this task.");
         fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.props.id, {
@@ -54,6 +54,11 @@ class Rating extends React.Component {
           <input type="radio" name="pain" value="3" defaultChecked={this.props.rating === 3} onChange={this.handleChange}/>3
           <input type="radio" name="pain" value="4" defaultChecked={this.props.rating === 4} onChange={this.handleChange}/>4
           <input type="radio" name="pain" value="5" defaultChecked={this.props.rating === 5} onChange={this.handleChange}/>5
+          <input type="radio" name="pain" value="6" defaultChecked={this.props.rating === 6} onChange={this.handleChange}/>6
+          <input type="radio" name="pain" value="7" defaultChecked={this.props.rating === 7} onChange={this.handleChange}/>7
+          <input type="radio" name="pain" value="8" defaultChecked={this.props.rating === 8} onChange={this.handleChange}/>8
+          <input type="radio" name="pain" value="9" defaultChecked={this.props.rating === 9} onChange={this.handleChange}/>9
+          <input type="radio" name="pain" value="10" defaultChecked={this.props.rating === 10} onChange={this.handleChange}/>10
           <input type="submit" value="Save"/>
       </form>
 
