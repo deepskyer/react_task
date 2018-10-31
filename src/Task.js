@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
 import { Link } from "react-router-dom";
+import {List, ListItem, ListItemContent} from 'react-mdl';
 
 class Task extends Component {
   constructor() {
@@ -65,13 +66,13 @@ componentWillMount(){
         <div className="task">
 
         <h4>This is the list of all task</h4>
-        <ul>
+        <List>
           {things.slice(0).reverse().map(thing => (
-            <li key={thing._id}>
-              <Link to={"/task/"+thing._id}>{thing.title}</Link>
-            </li>
+            <ListItem key={thing._id}>
+              <ListItemContent icon="assignment"><Link to={"/task/"+thing._id}>{thing.title}</Link></ListItemContent>
+            </ListItem>
           ))}
-        </ul>
+        </List>
 
 <hr />
 

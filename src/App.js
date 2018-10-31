@@ -32,8 +32,6 @@ render(){
           </li>
         </ul>
 
-        <hr />
-
 
         <Route exact path="/" component={Home} />
         <Route path="/tasks" component={Task} />

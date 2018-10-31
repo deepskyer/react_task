@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
+import {Button, CardActions, Textfield} from 'react-mdl';
 
 class Edit extends Component {
   constructor(props) {
@@ -52,18 +53,24 @@ checkRating(event){
     return (
       <div>
           <form>
-                <label>
-                  Title
-                  <input onChange={this.handleTitleChange}/>
-                </label>
-                <br />
-                <label>
-                  Content
-                  <input type="text" style={{width: "370px"}} onChange={this.handleContentChange}/>
-                </label>
-              <br />
-              <button onClick={this.clickhandler}>Submit</button>
+          <Textfield
+          onChange={this.handleTitleChange}
+          label="Title..."
+          style={{width: '200px'}}
+          />
+                                <br />
 
+                  <Textfield onChange={this.handleContentChange}
+                  label="Content..."
+                  rows={3}
+                  style={{width: '200px'}}
+                  />
+              <br />
+              <CardActions border>
+                 <Button raised accent ripple onClick={this.clickhandler}>Add</Button>
+              </CardActions>
+
+              <br />
           </form>
       </div>
     );
