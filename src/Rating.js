@@ -8,7 +8,7 @@ class Rating extends React.Component {
       super(props);
       this.state = {
         rating: "",
-        message: this.props.rating?"rated:" + this.props.rating : "not rate yet",
+        message: this.props.rating?"Rated " + this.props.rating : "Not rate yet.",
         title: this.props.title,
         content:this.props.content,
         toTasklist: false,
@@ -17,11 +17,22 @@ class Rating extends React.Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
+componentDidMount(){
+  if(this.props.rating === null || this.props.rating === "") {
+        this.setState({
+          style : {backgroundColor:'red', color:'white'}
+        })
+
+      }
+}
+
 
     handleChange(event){
+
       this.setState({
         rating: event.target.value,
-        message: "Please save your rating",
+        style : {backgroundColor:'yellow', color:'Black'},
+        message: "Please save your rating.",
       });
       console.log(event.target.value);
     }
@@ -29,7 +40,8 @@ class Rating extends React.Component {
      handleSubmit(event) {
         event.preventDefault();
         this.setState({
-          message: "Rated:  " + this.state.rating,
+          message: "Rated " + this.state.rating,
+          style: {backgroundColor:'green', color:'white'},
         });
         console.log("you rate " + this.state.rating + " for this task.");
         fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.props.id, {
@@ -50,9 +62,7 @@ class Rating extends React.Component {
 
 
   render() {
-    if(this.props.rating === null || this.props.rating === "") {
-      this.state.style = {backgroundColor:'red', color:'white'}
-    } else {this.state.style = {backgroundColor:'green', color:'white'}}
+
     return (
 <div className="rating">
       <form onSubmit={this.handleSubmit}>

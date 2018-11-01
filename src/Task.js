@@ -1,5 +1,4 @@
 import React, { Component }  from 'react';
-import { Link } from "react-router-dom";
 import {Spinner, DataTable, TableHeader} from 'react-mdl';
 
 class Task extends Component {
@@ -16,8 +15,29 @@ class Task extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
-componentWillMount(){
-    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
+componentDidUpdate(){
+
+
+  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          things: result,
+        });
+
+      },
+
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error
+        });
+      },
+
+      //console.log(this.state.things),
+    )
 }
 
   componentDidMount() {
@@ -69,7 +89,7 @@ componentWillMount(){
 
         <DataTable
          shadow={0}
-         rows={this.state.things.slice(0).reverse()}
+         rows={things.slice(0).reverse()}
     >
     <TableHeader name="title" tooltip="The task name">Task</TableHeader>
     <TableHeader name="_id" cellFormatter={(_id) => <a href={"/task/"+_id}>Check</a>} tooltip="Out of 5">Details</TableHeader>

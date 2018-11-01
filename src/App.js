@@ -9,8 +9,6 @@ import Home from './Home';
 import Taskview from './Taskview';
 
 
-
-
 class App extends Component {
   constructor() {
     super();
@@ -20,9 +18,33 @@ class App extends Component {
     };
   }
 
+  componentDidUpdate() {
+    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            things: result,
+            unrated: result.filter(thing => thing.rating === null).length,
+          });
+
+        },
+
+        console.log("reload times: " + this.state.count),
+
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        },
+
+        //console.log(this.state.things),
+      )
+  }
+
   componentDidMount() {
-
-
     fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
       .then(res => res.json())
       .then(
