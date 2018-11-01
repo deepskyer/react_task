@@ -89,7 +89,7 @@ class statistic extends Component {
 
 
         <h4>This is a statistic component</h4>
-      <FABButton colored onClick={this.componentDidMount}><Icon name="cloud_download" /></FABButton>  <h5>loaded times: {count}</h5>
+      <FABButton colored onClick={this.componentDidMount}><Icon name="cached" /></FABButton>  <h5>loaded times: {count}</h5>
 
         <h4>There are {things.length} tasks.</h4>
         There are {good} good tasks, there are {bad} bad tasks and {unrated} unrated tasks.

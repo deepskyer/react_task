@@ -4,7 +4,7 @@ import './style/App.css';
 import Task from './Task';
 import statistic from './statistic';
 import feedback from './feedback';
-import {Badge, Layout, Header, Navigation } from 'react-mdl';
+import {Icon, Badge, Layout, Header, Navigation } from 'react-mdl';
 import Home from './Home';
 import Taskview from './Taskview';
 
@@ -55,12 +55,12 @@ render(){
 
         <div>
     <Layout fixedHeader>
-        <Header title="Tasks Review" style={{color: 'white'}}>
+        <Header title="{ Tasks Review }" style={{color: 'white'}}>
             <Navigation>
               <Link to="/">Home</Link>
               <Link to="/tasks">Tasks</Link>
               <Link to="/feedback"><Badge text={(this.state.unrated===null || this.state.unrated===0)?null:this.state.unrated}>Review</Badge></Link>
-              <Link to="/statistic">Statistic</Link>
+              <Link to="/statistic"><Icon name="assessment" style={{marginRight: 10}}></Icon>Statistic</Link>
             </Navigation>
         </Header>
         <Route exact path="/" component={Home} />
