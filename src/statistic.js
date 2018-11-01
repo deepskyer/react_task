@@ -1,7 +1,8 @@
 import React, { Component }  from 'react';
 import {Bar} from 'react-chartjs-2';
+import {Spinner} from 'react-mdl';
 
-class statistic extends Component {
+class Statistic extends Component {
   constructor() {
     super();
     this.state = {
@@ -71,7 +72,7 @@ class statistic extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div style={{margin: '300px auto', width: '200px'}}><Spinner/></div>;
     } else {
 
 
@@ -96,4 +97,4 @@ class statistic extends Component {
   }
 }
 
-export default statistic;
+export default Statistic;

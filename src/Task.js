@@ -69,7 +69,6 @@ componentDidUpdate(){
           });
         },
 
-        //console.log(this.state.things),
       )
   }
 
@@ -80,7 +79,7 @@ componentDidUpdate(){
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <Spinner />;
+      return <div style={{margin: '300px auto', width: '200px'}}><Spinner/></div>;
     } else {
 
 
@@ -94,7 +93,7 @@ componentDidUpdate(){
          rows={things.slice(0).reverse()}
     >
     <TableHeader name="title" tooltip="The task name">Task</TableHeader>
-    <TableHeader name="_id" cellFormatter={(_id) => <a href={"/task/"+_id}>Check</a>} tooltip="The details of the task.">Details</TableHeader>
+    <TableHeader name="_id" cellFormatter={(_id) =>   <Link to={"/task/"+_id}>Check</Link>} tooltip="The details of the task.">Details</TableHeader>
     <TableHeader name="content" cellFormatter={(content) => content.substring(0, 200)} tooltip="Comment of the task">Comment</TableHeader>
     <TableHeader numeric name="rating" tooltip="Out of 5">Rating</TableHeader>
 

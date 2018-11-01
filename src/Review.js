@@ -76,7 +76,7 @@ componentDidUpdate() {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <Spinner style={{margin: '200px auto', width: '100px' }}/>;
+      return <div style={{margin: '300px auto', width: '200px'}}><Spinner/></div>;
     } else {
 
 

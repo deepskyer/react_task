@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './style/App.css';
 import Task from './Task';
-import statistic from './statistic';
+import Statistic from './Statistic';
 import Review from './Review';
-import {Icon, Badge, Layout, Header, Navigation } from 'react-mdl';
+import {Spinner, Icon, Badge, Layout, Header, Navigation } from 'react-mdl';
 import Home from './Home';
 import Taskview from './Taskview';
 
@@ -87,7 +87,7 @@ render(){
         <Route exact path="/" component={Home} />
         <Route path="/tasks" component={Task} />
         <Route path="/review" component={Review} />
-        <Route path="/statistic" component={statistic} />
+        <Route path="/statistic" component={Statistic} />
         <Route path="/task/:id" component={Taskview} />
     </Layout>
 

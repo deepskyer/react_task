@@ -62,7 +62,7 @@ class Taskview extends React.Component {
     const { error, isLoaded, thing, toTasklist, toReview} = this.state;
 
 if(toTasklist){return <Redirect to='/tasks' />}
-else if (toReview) {return <Redirect to='/feedback' />}
+else if (toReview) {return <Redirect to='/review' />}
     else if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
