@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
-import {Button, CardActions, Textfield} from 'react-mdl';
+import {CardActions, Textfield} from 'react-mdl';
+import Button from '@material-ui/core/Button';
 
 class Edit extends Component {
   constructor(props) {
@@ -67,7 +68,7 @@ checkRating(event){
                   />
               <br />
               <CardActions>
-                 <Button raised colored ripple onClick={this.clickhandler}>Add</Button>
+                 <Button variant="contained" color="primary" onClick={this.clickhandler}>Add</Button>
               </CardActions>
 <br />
           </form>

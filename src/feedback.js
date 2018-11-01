@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import Rating from './Rating'
-import {CardTitle, CardText, CardActions, Card, Grid, Cell} from 'react-mdl';
+import {Spinner, CardTitle, CardText, CardActions, Card, Grid, Cell} from 'react-mdl';
 import './style/task.css';
 
 class feedback extends Component {
@@ -48,7 +48,7 @@ class feedback extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <Spinner style={{margin: '200px auto', width: '100px' }}/>;
     } else {
 
 
