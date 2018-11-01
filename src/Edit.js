@@ -61,16 +61,15 @@ checkRating(event){
                                 <br />
 
                   <Textfield onChange={this.handleContentChange}
-                  label="Content..."
-                  rows={3}
+                  label="Comment..."
+                  rows={4}
                   style={{width: '200px'}}
                   />
               <br />
-              <CardActions border>
-                 <Button raised accent ripple onClick={this.clickhandler}>Add</Button>
+              <CardActions>
+                 <Button raised colored ripple onClick={this.clickhandler}>Add</Button>
               </CardActions>
-
-              <br />
+<br />
           </form>
       </div>
     );

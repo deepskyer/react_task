@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import {Button, Chip} from 'react-mdl';
+import './style/rating.css';
 
 class Rating extends React.Component {
 
@@ -46,23 +48,22 @@ class Rating extends React.Component {
 
   render() {
     return (
-<div>
+<div className="rating">
       <form onSubmit={this.handleSubmit}>
-      <label>Please rate the task {this.props.name}. </label>
+      <label>Rate: </label>
           <input type="radio" name="pain" value="1" defaultChecked={this.props.rating === 1} onChange={this.handleChange}/>1
           <input type="radio" name="pain" value="2" defaultChecked={this.props.rating === 2} onChange={this.handleChange}/>2
           <input type="radio" name="pain" value="3" defaultChecked={this.props.rating === 3} onChange={this.handleChange}/>3
           <input type="radio" name="pain" value="4" defaultChecked={this.props.rating === 4} onChange={this.handleChange}/>4
           <input type="radio" name="pain" value="5" defaultChecked={this.props.rating === 5} onChange={this.handleChange}/>5
-          <input type="radio" name="pain" value="6" defaultChecked={this.props.rating === 6} onChange={this.handleChange}/>6
-          <input type="radio" name="pain" value="7" defaultChecked={this.props.rating === 7} onChange={this.handleChange}/>7
-          <input type="radio" name="pain" value="8" defaultChecked={this.props.rating === 8} onChange={this.handleChange}/>8
-          <input type="radio" name="pain" value="9" defaultChecked={this.props.rating === 9} onChange={this.handleChange}/>9
-          <input type="radio" name="pain" value="10" defaultChecked={this.props.rating === 10} onChange={this.handleChange}/>10
-          <input type="submit" value="Save"/>
+
+
+          <Button colored>Save</Button>
       </form>
 
-      <h3>{this.state.message}</h3>
+<Chip>{this.state.message}</Chip> <br/>
+
+    <br/>
 </div>
     );
 

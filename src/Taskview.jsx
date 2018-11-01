@@ -1,5 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import {Button} from 'react-mdl';
 
 class Taskview extends React.Component {
   constructor() {
@@ -91,10 +92,12 @@ Updated At: {thing.updatedAt.substring(0, 10)}
 </li>
 </ul>
 
-<button onClick={this.deleteHandler}>Delete</button>  <button onClick={this.reviewHandler}>Review</button>
-
 
         <hr />
+
+<Button onClick={this.deleteHandler} raised ripple accent>Delete</Button>  <Button onClick={this.reviewHandler} raised colored ripple>Review</Button>
+
+
 
 
         </div>
