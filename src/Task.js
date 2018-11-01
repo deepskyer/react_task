@@ -69,10 +69,10 @@ componentWillMount(){
 
         <DataTable
          shadow={0}
-         rows={this.state.things}
+         rows={this.state.things.slice(0).reverse()}
     >
     <TableHeader name="title" tooltip="The task name">Task</TableHeader>
-    <TableHeader name="_id" cellFormatter={(_id) => <a href={"/task/"+_id}>Check</a>} tooltip="Out of 10">Details</TableHeader>
+    <TableHeader name="_id" cellFormatter={(_id) => <a href={"/task/"+_id}>Check</a>} tooltip="Out of 5">Details</TableHeader>
     <TableHeader name="content" cellFormatter={(content) => content.substring(0, 200)} tooltip="Comment of the task">Comment</TableHeader>
     <TableHeader numeric name="rating" tooltip="Out of 10">Rating</TableHeader>
 

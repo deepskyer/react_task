@@ -12,6 +12,7 @@ class Rating extends React.Component {
         title: this.props.title,
         content:this.props.content,
         toTasklist: false,
+        style: {backgroundColor:'green', color:'white'},
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,7 +47,12 @@ class Rating extends React.Component {
       }
 
 
+
+
   render() {
+    if(this.props.rating === null || this.props.rating === "") {
+      this.state.style = {backgroundColor:'red', color:'white'}
+    } else {this.state.style = {backgroundColor:'green', color:'white'}}
     return (
 <div className="rating">
       <form onSubmit={this.handleSubmit}>
@@ -56,12 +62,10 @@ class Rating extends React.Component {
           <input type="radio" name="pain" value="3" defaultChecked={this.props.rating === 3} onChange={this.handleChange}/>3
           <input type="radio" name="pain" value="4" defaultChecked={this.props.rating === 4} onChange={this.handleChange}/>4
           <input type="radio" name="pain" value="5" defaultChecked={this.props.rating === 5} onChange={this.handleChange}/>5
-
-
           <Button colored>Save</Button>
       </form>
 
-<Chip>{this.state.message}</Chip> <br/>
+<Chip style={this.state.style}>{this.state.message}</Chip> <br/>
 
     <br/>
 </div>
