@@ -3,7 +3,7 @@ import Rating from './Rating'
 import {Spinner, CardTitle, CardText, CardActions, Card, Grid, Cell} from 'react-mdl';
 import './style/task.css';
 
-class feedback extends Component {
+class Review extends Component {
   constructor() {
     super();
     this.state = {
@@ -11,8 +11,37 @@ class feedback extends Component {
       isLoaded: false,
       things: []
     };
-    this.componentDidMount = this.componentDidMount.bind(this);
   }
+
+  componentWillUnmount() {
+    this.isCancelled = true;
+}
+
+componentDidUpdate() {
+
+
+  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
+    .then(res => res.json())
+    .then(
+      (result) => {
+        !this.isCancelled && this.setState({
+          isLoaded: true,
+          things: result,
+
+        });
+
+      },
+
+
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error
+        });
+      },
+
+    )
+}
 
   componentDidMount() {
 
@@ -37,7 +66,6 @@ class feedback extends Component {
           });
         },
 
-        //console.log(this.state.things),
       )
   }
 
@@ -54,13 +82,11 @@ class feedback extends Component {
 
       return (
         <div className="feedback" style={{width: '90%', margin: 'auto'}}>
-
-        <h4>This is the review component</h4>
         <div>
           <Grid>
-          {things.slice(0).reverse().map(thing => (<Cell col={4}><Card shadow={0} style={{width: '320px', height: '350px', margin: '30px'}}>
-              <CardTitle expand style={{color: '#fff', background: 'url(http://www.getmdl.io/assets/demos/dog.png) bottom right 5% no-repeat #46B6AC'}}>{thing.title}</CardTitle>
-              <CardText>
+          {things.slice(0).reverse().map(thing => (<Cell key={thing._id} col={3}><Card  shadow={0} style={{width: '320px', height: '350px', margin: '30px'}}>
+              <CardTitle expand style={{color: '#52006d', background: '#fcfcfc'}}>{thing.title}</CardTitle>
+              <CardText style={{color: '#565656', background: '#fcfcfc', textAlign: 'left', height: '120px'}}>
                   {thing.content}
               </CardText>
               <CardActions border>
@@ -80,4 +106,4 @@ class feedback extends Component {
   }
 }
 
-export default feedback;
+export default Review;

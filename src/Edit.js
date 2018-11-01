@@ -16,6 +16,8 @@ class Edit extends Component {
     this.handleContentChange = this.handleContentChange.bind(this);
   }
 
+
+
   clickhandler= (event) => {
     event.preventDefault();
     console.log(this.state.title+this.state.content);
@@ -31,20 +33,20 @@ class Edit extends Component {
   })
 });
 
+
 this.setState({toTasklist: true});
-  }
+};
+
+
 
   handleTitleChange(event) {
    this.setState({title: event.target.value});
-}
+};
 handleContentChange(event) {
    this.setState({content: event.target.value});
-}
+};
 
 
-checkRating(event){
-    console.log(this.props.fen);
-}
 
   render() {
     if (this.state.toTasklist === true) {
@@ -56,15 +58,15 @@ checkRating(event){
           <form>
           <Textfield
           onChange={this.handleTitleChange}
-          label="Title..."
+          label="Task Title"
           style={{width: '200px'}}
           />
                                 <br />
 
                   <Textfield onChange={this.handleContentChange}
-                  label="Comment..."
-                  rows={4}
-                  style={{width: '200px'}}
+                  label="Task Content"
+                  rows={2}
+                  style={{width: '400px'}}
                   />
               <br />
               <CardActions>

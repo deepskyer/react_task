@@ -1,8 +1,5 @@
 import React, { Component }  from 'react';
 import {Bar} from 'react-chartjs-2';
-import {FABButton, Icon} from 'react-mdl';
-
-// import './style/statistic.css';
 
 class statistic extends Component {
   constructor() {
@@ -14,10 +11,8 @@ class statistic extends Component {
       good: 0,
       bad: 0,
       unrated: 0,
-      count: 0,
       limit: 10
     };
-    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +25,6 @@ class statistic extends Component {
           this.setState({
             isLoaded: true,
             things: result,
-            count: this.state.count+1,
             good: result.filter(thing => thing.rating >= 3).length,
             bad: result.filter(thing => thing.rating < 3).length,
             unrated: result.filter(thing => thing.rating === null).length,
@@ -38,8 +32,6 @@ class statistic extends Component {
           });
 
         },
-
-        console.log("reload times: " + this.state.count),
 
         (error) => {
           this.setState({
@@ -52,7 +44,7 @@ class statistic extends Component {
   }
 
   render() {
-    const { error, isLoaded, things, good, bad, unrated, count } = this.state;
+    const { error, isLoaded, things, good, bad, unrated } = this.state;
 
     const data = {
     labels: ['Good', 'Bad', 'Unrated'],
@@ -89,7 +81,6 @@ class statistic extends Component {
 
 
         <h4>This is a statistic component</h4>
-      <FABButton colored onClick={this.componentDidMount}><Icon name="cached" /></FABButton>  <h5>loaded times: {count}</h5>
 
         <h4>There are {things.length} tasks.</h4>
         There are {good} good tasks, there are {bad} bad tasks and {unrated} unrated tasks.

@@ -73,24 +73,19 @@ else if (toReview) {return <Redirect to='/feedback' />}
       return (
         <div className="task">
 
-        <h4>This is the detail of the task</h4>
-<ul>
-<li>
-Title: {thing.title}
-</li>
-<li>
-Content: {thing.content}
-</li>
-<li>
-Rating: {thing.rating}
-</li>
-<li>
+
+
+<h4>Title: {thing.title}
+</h4>
 Created At: {thing.createdAt.substring(0, 10)}
-</li>
-<li>
-Updated At: {thing.updatedAt.substring(0, 10)}
-</li>
-</ul>
+<br/>
+Rating: {thing.rating}
+<br/>
+Content: {thing.content}
+
+
+
+
 
 
         <hr />

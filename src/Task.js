@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
-import {Spinner, DataTable, TableHeader} from 'react-mdl';
+import {FABButton, Icon, Spinner, DataTable, TableHeader} from 'react-mdl';
+import {Link} from 'react-router-dom';
 
 class Task extends Component {
   constructor() {
@@ -12,8 +13,11 @@ class Task extends Component {
       bad: 0,
       count: 0
     };
-    this.componentDidMount = this.componentDidMount.bind(this);
   }
+  componentWillUnmount() {
+      this.isCancelled = true;
+  }
+
 
 componentDidUpdate(){
 
@@ -22,7 +26,7 @@ componentDidUpdate(){
     .then(res => res.json())
     .then(
       (result) => {
-        this.setState({
+        !this.isCancelled && this.setState({
           isLoaded: true,
           things: result,
         });
@@ -58,8 +62,6 @@ componentDidUpdate(){
 
         },
 
-        console.log("reload times: " + this.state.count),
-
         (error) => {
           this.setState({
             isLoaded: true,
@@ -92,14 +94,20 @@ componentDidUpdate(){
          rows={things.slice(0).reverse()}
     >
     <TableHeader name="title" tooltip="The task name">Task</TableHeader>
-    <TableHeader name="_id" cellFormatter={(_id) => <a href={"/task/"+_id}>Check</a>} tooltip="Out of 5">Details</TableHeader>
+    <TableHeader name="_id" cellFormatter={(_id) => <a href={"/task/"+_id}>Check</a>} tooltip="The details of the task.">Details</TableHeader>
     <TableHeader name="content" cellFormatter={(content) => content.substring(0, 200)} tooltip="Comment of the task">Comment</TableHeader>
-    <TableHeader numeric name="rating" tooltip="Out of 10">Rating</TableHeader>
+    <TableHeader numeric name="rating" tooltip="Out of 5">Rating</TableHeader>
+
 
 
     </DataTable>
 
-
+<Link to="/">
+    <FABButton colored ripple style={{position: 'fixed',
+    bottom: '20px',
+    right: '20px'}}>
+        <Icon name="add" />
+    </FABButton></Link>
 
 
         </div>

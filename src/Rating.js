@@ -12,15 +12,17 @@ class Rating extends React.Component {
         title: this.props.title,
         content:this.props.content,
         toTasklist: false,
-        style: {backgroundColor:'green', color:'white'},
+        style: {color:'black'},
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
 componentDidMount(){
   if(this.props.rating === null || this.props.rating === "") {
         this.setState({
-          style : {backgroundColor:'red', color:'white'}
+          style : {backgroundColor:'#ff2d70', color:'white'}
         })
 
       }
@@ -31,7 +33,7 @@ componentDidMount(){
 
       this.setState({
         rating: event.target.value,
-        style : {backgroundColor:'yellow', color:'Black'},
+        style : {backgroundColor:'#eec168', color:'Black'},
         message: "Please save your rating.",
       });
       console.log(event.target.value);
@@ -40,8 +42,8 @@ componentDidMount(){
      handleSubmit(event) {
         event.preventDefault();
         this.setState({
-          message: "Rated " + this.state.rating,
-          style: {backgroundColor:'green', color:'white'},
+          message: "You changed the rating to " + this.state.rating,
+          style: {backgroundColor:'#6eb544', color:'white'},
         });
         console.log("you rate " + this.state.rating + " for this task.");
         fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.props.id, {
