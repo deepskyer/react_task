@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import {Bar} from 'react-chartjs-2';
-import {Spinner} from 'react-mdl';
+import {Card, CardTitle, CardText, Spinner} from 'react-mdl';
 
 class Statistic extends Component {
   constructor() {
@@ -52,11 +52,11 @@ class Statistic extends Component {
     datasets: [
       {
         label: 'My tasks',
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        backgroundColor: 'rgba(255, 255, 255, 1)',
+        borderColor: 'rgba(255, 255, 255, 1)',
+        borderWidth: 0,
+        hoverBackgroundColor: 'rgba(255, 255, 255, 0.9)',
+        hoverBorderColor: 'rgba(255, 255, 255, 0.9)',
         data: [good, bad, unrated]
       }
     ]
@@ -64,9 +64,28 @@ class Statistic extends Component {
 
   const options = {scales:
     {
-      yAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: this.state.limit} }],
-      xAxes: [{ ticks: { beginAtZero: true, fontSize: 16, min: 0, max: 6} }]
-    }
+      yAxes: [{ ticks: { beginAtZero: true, fontSize: 16, fontColor: '#fff', min: 0, max: this.state.limit}, gridLines: {display:false} }],
+      xAxes: [{ ticks: { beginAtZero: true, fontSize: 16, fontColor: '#fff', min: 0, max: 6}, gridLines: {display:false}  }]
+    },
+
+    layout: {
+            padding: {
+                left: 50,
+                right: 0,
+                top: 0,
+                bottom: 0
+            }
+        },
+    legend: {
+            labels: {
+                fontColor: '#fff',
+            }
+        },
+        title: {
+
+                    fontColor: '#fff',
+
+            }
 };
 
     if (error) {
@@ -83,15 +102,22 @@ class Statistic extends Component {
 
         <h4>This is a statistic component</h4>
 
-        <h4>There are {things.length} tasks.</h4>
-        There are {good} good tasks, there are {bad} bad tasks and {unrated} unrated tasks.
-        <div className="barChart" >
-        <Bar data={data} width={50} height={50} options={options} />
-        </div>
+        <Card shadow={0} style={{width: '520px', height: '720px', margin: 'auto'}}>
+          <CardTitle expand style={{color: '#fff', background: '#4a148c'}}><div className="barChart" >
+          <Bar data={data} width={50} height={50} options={options}/>
+          </div></CardTitle>
+          <CardText style={{textAlign: 'left', height: '120px'}}>
+
+          There are {good} good tasks, there are {bad} bad tasks and {unrated} unrated tasks.
+          <h3 style={{weight: 'bold', color: '#000'}}>There are {things.length} tasks.</h3>
+          <br/>
+          </CardText>
+        </Card>
+
+
+
 
         </div>
-
-
       );
     }
   }

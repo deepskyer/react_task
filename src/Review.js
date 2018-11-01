@@ -18,8 +18,6 @@ class Review extends Component {
 }
 
 componentDidUpdate() {
-
-
   fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
     .then(res => res.json())
     .then(
@@ -29,10 +27,7 @@ componentDidUpdate() {
           things: result,
 
         });
-
       },
-
-
       (error) => {
         this.setState({
           isLoaded: true,
@@ -44,8 +39,6 @@ componentDidUpdate() {
 }
 
   componentDidMount() {
-
-
     fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
       .then(res => res.json())
       .then(
@@ -85,8 +78,8 @@ componentDidUpdate() {
         <div>
           <Grid>
           {things.slice(0).reverse().map(thing => (<Cell key={thing._id} col={3}><Card  shadow={0} style={{width: '320px', height: '350px', margin: '30px'}}>
-              <CardTitle expand style={{color: '#52006d', background: '#fcfcfc'}}>{thing.title}</CardTitle>
-              <CardText style={{color: '#565656', background: '#fcfcfc', textAlign: 'left', height: '120px'}}>
+              <CardTitle expand style={{color: '#fff', background: '#4a148c'}}>{thing.title}</CardTitle>
+              <CardText style={{color: '#565656', background: '#fff', textAlign: 'left', height: '120px'}}>
                   {thing.content}
               </CardText>
               <CardActions border>
@@ -95,9 +88,6 @@ componentDidUpdate() {
           </Card></Cell>))}
           </Grid>
         </div>
-
-
-
         </div>
 
 

@@ -83,17 +83,9 @@ Rating: {thing.rating}
 <br/>
 Content: {thing.content}
 
-
-
-
-
-
         <hr />
 
 <Button onClick={this.deleteHandler} raised ripple accent>Delete</Button>  <Button onClick={this.reviewHandler} raised colored ripple>Review</Button>
-
-
-
 
         </div>
 

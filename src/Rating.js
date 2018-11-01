@@ -28,7 +28,6 @@ componentDidMount(){
       }
 }
 
-
     handleChange(event){
 
       this.setState({
@@ -42,7 +41,7 @@ componentDidMount(){
      handleSubmit(event) {
         event.preventDefault();
         this.setState({
-          message: "You changed the rating to " + this.state.rating,
+          message: "You saved the rating to " + this.state.rating + ".",
           style: {backgroundColor:'#6eb544', color:'white'},
         });
         console.log("you rate " + this.state.rating + " for this task.");
@@ -60,9 +59,6 @@ componentDidMount(){
     });
       }
 
-
-
-
   render() {
 
     return (
@@ -76,17 +72,12 @@ componentDidMount(){
           <input type="radio" name="pain" value="5" defaultChecked={this.props.rating === 5} onChange={this.handleChange}/>5
           <Button colored>Save</Button>
       </form>
-
-<Chip style={this.state.style}>{this.state.message}</Chip> <br/>
-
+      <br/>
+      <Chip style={this.state.style}>{this.state.message}</Chip> <br/>
     <br/>
 </div>
     );
-
-
-
   }
-
 }
 
 export default Rating;

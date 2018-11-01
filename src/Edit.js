@@ -19,32 +19,31 @@ class Edit extends Component {
 
 
   clickhandler= (event) => {
-    event.preventDefault();
-    console.log(this.state.title+this.state.content);
-    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/', {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    title: this.state.title,
-    content: this.state.content,
-  })
-});
-
-
-this.setState({toTasklist: true});
-};
+            event.preventDefault();
+            console.log(this.state.title+this.state.content);
+            fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/', {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                },
+          body: JSON.stringify({
+            title: this.state.title,
+            content: this.state.content,
+          })
+        });
+          this.setState({toTasklist: true});
+  }
 
 
 
   handleTitleChange(event) {
    this.setState({title: event.target.value});
-};
+}
+
 handleContentChange(event) {
    this.setState({content: event.target.value});
-};
+}
 
 
 
@@ -58,21 +57,20 @@ handleContentChange(event) {
           <form>
           <Textfield
           onChange={this.handleTitleChange}
-          label="Task Title"
+          label="Task Name"
           style={{width: '200px'}}
           />
-                                <br />
-
+          <br />
                   <Textfield onChange={this.handleContentChange}
                   label="Task Content"
-                  rows={2}
-                  style={{width: '400px'}}
+                  rows={1}
+                  style={{width: '350px'}}
                   />
               <br />
               <CardActions>
                  <Button variant="contained" color="primary" onClick={this.clickhandler}>Add</Button>
               </CardActions>
-<br />
+              <br />
           </form>
       </div>
     );

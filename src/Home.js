@@ -10,7 +10,7 @@ class Home extends React.Component {
       <div className="welcome">
         <Card shadow={0} style={{width: '512px', margin: 'auto'}}>
             <CardTitle style={{color: '#fff', height: '176px',
-                        background: 'url(http://www.getmdl.io/assets/demos/welcome_card.jpg) center / cover'}}>New Task</CardTitle>
+                        background: 'url(http://www.getmdl.io/assets/demos/welcome_card.jpg) center / cover'}}>New task</CardTitle>
             <CardText>
                 Please add a new task to review.
             </CardText>

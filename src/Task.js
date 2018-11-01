@@ -9,15 +9,11 @@ class Task extends Component {
       error: null,
       isLoaded: false,
       things: [],
-      good: 0,
-      bad: 0,
-      count: 0
     };
   }
   componentWillUnmount() {
       this.isCancelled = true;
   }
-
 
 componentDidUpdate(){
 
@@ -54,10 +50,6 @@ componentDidUpdate(){
           this.setState({
             isLoaded: true,
             things: result,
-            count: this.state.count+1,
-            good: result.filter(thing => thing.title.startsWith("good")).length,
-            bad: result.filter(thing => thing.title.startsWith("bad")).length,
-
           });
 
         },
@@ -81,37 +73,26 @@ componentDidUpdate(){
     } else if (!isLoaded) {
       return <div style={{margin: '300px auto', width: '200px'}}><Spinner/></div>;
     } else {
-
-
       return (
         <div className="task">
 
         <h4>This is the list of all task</h4>
 
-        <DataTable
-         shadow={0}
-         rows={things.slice(0).reverse()}
-    >
-    <TableHeader name="title" tooltip="The task name">Task</TableHeader>
-    <TableHeader name="_id" cellFormatter={(_id) =>   <Link to={"/task/"+_id}>Check</Link>} tooltip="The details of the task.">Details</TableHeader>
-    <TableHeader name="content" cellFormatter={(content) => content.substring(0, 200)} tooltip="Comment of the task">Comment</TableHeader>
-    <TableHeader numeric name="rating" tooltip="Out of 5">Rating</TableHeader>
+        <DataTable shadow={0} rows={things.slice(0).reverse()}>
+          <TableHeader name="title" tooltip="The task name">Task</TableHeader>
+          <TableHeader name="_id" cellFormatter={(_id) =>   <Link to={"/task/"+_id}>Check</Link>} tooltip="The details of the task.">Details</TableHeader>
+          <TableHeader name="content" cellFormatter={(content) => content.substring(0, 200)} tooltip="Comment of the task">Comment</TableHeader>
+          <TableHeader numeric name="rating" tooltip="Out of 5">Rating</TableHeader>
+        </DataTable>
 
-
-
-    </DataTable>
-
-<Link to="/">
-    <FABButton colored ripple style={{position: 'fixed',
-    bottom: '20px',
-    right: '20px'}}>
-        <Icon name="add" />
-    </FABButton></Link>
-
-
+        <Link to="/">
+          <FABButton colored ripple style={{position: 'fixed',
+          bottom: '20px',
+          right: '20px'}}>
+              <Icon name="add" />
+          </FABButton>
+        </Link>
         </div>
-
-
       );
     }
   }
