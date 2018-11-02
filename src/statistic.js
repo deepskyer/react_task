@@ -27,7 +27,7 @@ class Statistic extends Component {
             isLoaded: true,
             things: result,
             good: result.filter(thing => thing.rating >= 3).length,
-            bad: result.filter(thing => thing.rating < 3).length,
+            bad: result.filter(thing => thing.rating < 3 && thing.rating !== 0 && thing.rating !== null).length,
             unrated: result.filter(thing => thing.rating === null).length,
             limit: result.length,
           });
@@ -100,7 +100,7 @@ class Statistic extends Component {
 
 
 
-        <h4>This is a statistic component</h4>
+        <h4>This is an assessment of tasks</h4>
 
         <Card shadow={0} style={{width: '520px', height: '720px', margin: 'auto'}}>
           <CardTitle expand style={{color: '#fff', background: '#4a148c'}}><div className="barChart" >
@@ -109,7 +109,8 @@ class Statistic extends Component {
           <CardText style={{textAlign: 'left', height: '120px'}}>
 
           There are {good} good tasks, there are {bad} bad tasks and {unrated} unrated tasks.
-          <h3 style={{weight: 'bold', color: '#000'}}>There are {things.length} tasks.</h3>
+          <br/>
+          <h1 style={{weight: 'bold', color: '#000'}}>{things.length} Tasks</h1>
           <br/>
           </CardText>
         </Card>

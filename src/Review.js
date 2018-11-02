@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import Rating from './Rating'
-import {Spinner, CardTitle, CardText, CardActions, Card, Grid, Cell} from 'react-mdl';
+import {Icon, Spinner, CardTitle, CardText, CardActions, Card, Grid, Cell} from 'react-mdl';
 import './style/task.css';
 
 class Review extends Component {
@@ -78,9 +78,9 @@ componentDidUpdate() {
         <div>
           <Grid>
           {things.slice(0).reverse().map(thing => (<Cell key={thing._id} col={3}><Card  shadow={0} style={{width: '320px', height: '350px', margin: '30px'}}>
-              <CardTitle expand style={{color: '#fff', background: '#4a148c'}}>{thing.title}</CardTitle>
+              <CardTitle expand style={{color: '#fff', background: '#4a148c'}}><Icon name="assignment" style={{marginRight: '9px'}}/>{thing.title.length>=30?thing.title.substring(0, 30)+'...':thing.title}</CardTitle>
               <CardText style={{color: '#565656', background: '#fff', textAlign: 'left', height: '120px'}}>
-                  {thing.content}
+                  {thing.content.length>=290?thing.content.substring(0, 290)+'...':thing.content}
               </CardText>
               <CardActions border>
                   <Rating name={thing.title} rating={thing.rating} id={thing._id} title={thing.title} content={thing.content}/>

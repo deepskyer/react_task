@@ -71,17 +71,16 @@ else if (toReview) {return <Redirect to='/review' />}
 
 
       return (
-        <div className="task">
+        <div className="taskview">
 
 
 
-<h4>Title: {thing.title}
-</h4>
-Created At: {thing.createdAt.substring(0, 10)}
+<h1>{thing.title}
+</h1><h4>
+Created At: {thing.createdAt.substring(0, 10)}</h4>
+<h4>Rating: {thing.rating}</h4>
 <br/>
-Rating: {thing.rating}
-<br/>
-Content: {thing.content}
+<p>Content: {thing.content}</p>
 
         <hr />
 

@@ -79,9 +79,9 @@ componentDidUpdate(){
         <h4>This is the list of all task</h4>
 
         <DataTable shadow={0} rows={things.slice(0).reverse()}>
-          <TableHeader name="title" tooltip="The task name">Task</TableHeader>
+          <TableHeader name="title" cellFormatter={(title) => title.length>=30?title.substring(0, 30)+'...':title}tooltip="The task name">Task</TableHeader>
           <TableHeader name="_id" cellFormatter={(_id) =>   <Link to={"/task/"+_id}>Check</Link>} tooltip="The details of the task.">Details</TableHeader>
-          <TableHeader name="content" cellFormatter={(content) => content.substring(0, 200)} tooltip="Comment of the task">Comment</TableHeader>
+          <TableHeader name="content" cellFormatter={(content) => content.length>=150?content.substring(0, 150)+'...':content} tooltip="Comment of the task">Comment</TableHeader>
           <TableHeader numeric name="rating" tooltip="Out of 5">Rating</TableHeader>
         </DataTable>
 

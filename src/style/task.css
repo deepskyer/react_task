@@ -5,11 +5,20 @@
   margin-top: 20px;
 }
 
-
+.taskview {
+  text-align: left;
+  color: #666666;
+  margin: 600px;
+  margin-top: 20px;
+}
 
 
 .barChart {
   width: 100%;
   height: 100%;
   font-size: 40px;
+}
+
+.taskview p {
+  font-size: 16px;
 }
