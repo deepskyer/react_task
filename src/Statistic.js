@@ -19,7 +19,7 @@ class Statistic extends Component {
   componentDidMount() {
 
 
-    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
+    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks', {mode: 'cors'})
       .then(res => res.json())
       .then(
         (result) => {

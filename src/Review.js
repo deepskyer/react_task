@@ -18,7 +18,7 @@ class Review extends Component {
 }
 
 componentDidUpdate() {
-  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
+  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks', {mode: 'cors'})
     .then(res => res.json())
     .then(
       (result) => {
@@ -39,7 +39,7 @@ componentDidUpdate() {
 }
 
   componentDidMount() {
-    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
+    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks', {mode: 'cors'})
       .then(res => res.json())
       .then(
         (result) => {
