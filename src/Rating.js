@@ -45,7 +45,7 @@ componentDidMount(){
           style: {backgroundColor:'#6eb544', color:'white'},
         });
         console.log("you rate " + this.state.rating + " for this task.");
-        fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.props.id, {mode: 'cors'}, {
+        fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.props.id, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

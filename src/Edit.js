@@ -21,7 +21,7 @@ class Edit extends Component {
   clickhandler= (event) => {
             event.preventDefault();
             console.log(this.state.title+this.state.content);
-            fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/', {mode: 'cors'}, {
+            fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/',  {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',

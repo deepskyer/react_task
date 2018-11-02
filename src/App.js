@@ -22,8 +22,8 @@ class App extends Component {
     this.isCancelled = true;
 }
 
-  componentDidUpdate() {
-    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks', {mode: 'cors'})
+  componentDidUpdate(prevProps, prevState) {
+    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
       .then(res => res.json())
       .then(
         (result) => {
@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks', {mode: 'cors'})
+    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
       .then(res => res.json())
       .then(
         (result) => {

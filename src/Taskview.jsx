@@ -20,7 +20,7 @@ class Taskview extends React.Component {
 
     let url='https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.props.match.params.id;
 
-    fetch(url, {mode: 'cors'})
+    fetch(url)
       .then(res => res.json())
       .then(
         (result) => {
@@ -44,7 +44,7 @@ class Taskview extends React.Component {
 
   deleteHandler=(event)=> {
   console.log("delete");
-  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.state.thing._id, {mode: 'cors'}, {
+  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.state.thing._id, {
   			method: 'DELETE'
   		});
       this.setState({
