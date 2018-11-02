@@ -84,7 +84,7 @@ Created At: {thing.createdAt.substring(0, 10)}</h4>
 
         <hr />
 
-<Button onClick={this.deleteHandler} raised ripple accent>Delete</Button>  <Button onClick={this.reviewHandler} raised colored ripple>Review</Button>
+<Button onClick={this.deleteHandler} raised ripple accent>Delete</Button> <Button onClick={this.reviewHandler} raised colored ripple style={{marginLeft: '10px'}}>Review</Button>
 
         </div>
 

@@ -62,8 +62,8 @@ handleContentChange(event) {
           <br />
                   <Textfield onChange={this.handleContentChange}
                   label="Task Content"
-                  rows={1}
-                  style={{width: '350px'}}
+                  rows={3}
+                  style={{width: '200px'}}
                   />
               <br />
               <CardActions>

@@ -1,5 +1,5 @@
 .task {
-  text-align: left;
+  text-align: center;
   color: #666666;
   margin: auto;
   margin-top: 20px;
@@ -8,8 +8,8 @@
 .taskview {
   text-align: left;
   color: #666666;
-  margin: 600px;
-  margin-top: 20px;
+  margin: 50px;
+  margin-top: 30px;
 }
 
 

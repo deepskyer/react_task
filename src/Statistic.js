@@ -64,13 +64,13 @@ class Statistic extends Component {
 
   const options = {scales:
     {
-      yAxes: [{ ticks: { beginAtZero: true, fontSize: 16, fontColor: '#fff', min: 0, max: this.state.limit}, gridLines: {display:false} }],
-      xAxes: [{ ticks: { beginAtZero: true, fontSize: 16, fontColor: '#fff', min: 0, max: 6}, gridLines: {display:false}  }]
+      yAxes: [{ ticks: { beginAtZero: true, fontSize: 13, fontColor: '#fff', min: 0, max: this.state.limit}, gridLines: {display:false} }],
+      xAxes: [{ ticks: { beginAtZero: true, fontSize: 13, fontColor: '#fff', min: 0, max: 6}, gridLines: {display:false}  }]
     },
 
     layout: {
             padding: {
-                left: 50,
+                left: 10,
                 right: 0,
                 top: 0,
                 bottom: 0
@@ -96,13 +96,9 @@ class Statistic extends Component {
 
 
       return (
-        <div className="task">
-
-
-
+        <div style={{width: '80%', margin: '30px auto'}}>
         <h4>This is an assessment of tasks</h4>
-
-        <Card shadow={0} style={{width: '520px', height: '720px', margin: 'auto'}}>
+        <Card shadow={0} style={{margin: 'auto'}}>
           <CardTitle expand style={{color: '#fff', background: '#4a148c'}}><div className="barChart" >
           <Bar data={data} width={50} height={50} options={options}/>
           </div></CardTitle>
@@ -110,7 +106,7 @@ class Statistic extends Component {
 
           There are {good} good tasks, there are {bad} bad tasks and {unrated} unrated tasks.
           <br/>
-          <h1 style={{weight: 'bold', color: '#000'}}>{things.length} Tasks</h1>
+          <h3 style={{weight: 'bold', color: '#000'}}>{things.length} Tasks</h3>
           <br/>
           </CardText>
         </Card>

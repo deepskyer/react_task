@@ -4,7 +4,7 @@ import './style/App.css';
 import Task from './Task';
 import Statistic from './Statistic';
 import Review from './Review';
-import {Icon, Badge, Layout, Header, Navigation } from 'react-mdl';
+import {Drawer, Icon, Badge, Layout, Header, Navigation } from 'react-mdl';
 import Home from './Home';
 import Taskview from './Taskview';
 
@@ -66,9 +66,8 @@ render(){
     return (
       <Router>
         <div className='Nav'>
-
-    <Layout fixedHeader >
-        <Header title="{ Tasks Review }" style={{color: '#fff', background: '#1e2c39'}}>
+    <Layout>
+        <Header title="{ Tasks Review }" style={{color: '#fff', background: '#1e2c39'}} scroll>
             <Navigation>
               <Link to="/">Home</Link>
               <Link to="/tasks">Tasks</Link>
@@ -76,6 +75,14 @@ render(){
               <Link to="/statistic"><Icon name="assessment" style={{marginRight: 10}}></Icon>Statistic</Link>
             </Navigation>
         </Header>
+        <Drawer title="{ Tasks Review }">
+            <Navigation>
+              <Link to="/">Home</Link>
+              <Link to="/tasks">Tasks</Link>
+              <Link to="/review"><Badge text={(this.state.unrated===null || this.state.unrated===0)?null:this.state.unrated}>Review</Badge></Link>
+              <Link to="/statistic">Statistic</Link>
+            </Navigation>
+        </Drawer>
         <Route exact path="/" component={Home} />
         <Route path="/tasks" component={Task} />
         <Route path="/review" component={Review} />
