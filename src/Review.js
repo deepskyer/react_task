@@ -77,7 +77,7 @@ componentDidUpdate() {
         <div className="feedback" style={{width: '90%', margin: 'auto'}}>
         <div>
           <Grid>
-          {things.slice(0).reverse().map(thing => (<Cell key={thing._id} col={3}><Card  shadow={0} style={{width: '320px', height: '350px', margin: '30px'}}>
+          {things.slice(0).reverse().map(thing => (<Cell key={thing._id} col={3}><Card  shadow={0} style={{width: '320px', height: '350px', margin: '10px'}}>
               <CardTitle expand style={{color: '#fff', background: '#4a148c'}}><Icon name="assignment" style={{marginRight: '9px'}}/>{thing.title.length>=30?thing.title.substring(0, 30)+'...':thing.title}</CardTitle>
               <CardText style={{color: '#565656', background: '#fff', textAlign: 'left', height: '120px'}}>
                   {thing.content.length>=290?thing.content.substring(0, 290)+'...':thing.content}
