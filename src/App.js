@@ -8,7 +8,6 @@ import {Icon, Badge, Layout, Header, Navigation } from 'react-mdl';
 import Home from './Home';
 import Taskview from './Taskview';
 
-
 class App extends Component {
   constructor() {
     super();
@@ -66,7 +65,8 @@ class App extends Component {
 render(){
     return (
       <Router>
-        <div>
+        <div className='Nav'>
+
     <Layout fixedHeader >
         <Header title="{ Tasks Review }" style={{color: '#fff', background: '#1e2c39'}}>
             <Navigation>

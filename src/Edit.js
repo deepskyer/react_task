@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
-import {CardActions, Textfield} from 'react-mdl';
-import Button from '@material-ui/core/Button';
+import {Button, CardActions, Textfield} from 'react-mdl';
 
 class Edit extends Component {
   constructor(props) {
@@ -68,7 +67,7 @@ handleContentChange(event) {
                   />
               <br />
               <CardActions>
-                 <Button variant="contained" color="primary" onClick={this.clickhandler}>Add</Button>
+                 <Button raised colored onClick={this.clickhandler}>Add</Button>
               </CardActions>
               <br />
           </form>
