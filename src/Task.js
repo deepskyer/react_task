@@ -3,69 +3,13 @@ import {FABButton, Icon, Spinner, DataTable, TableHeader} from 'react-mdl';
 import {Link} from 'react-router-dom';
 
 class Task extends Component {
-  constructor() {
-    super();
-    this.state = {
-      error: null,
-      isLoaded: false,
-      things: [],
-    };
-  }
-  componentWillUnmount() {
-      this.isCancelled = true;
-  }
 
-componentDidUpdate(){
-
-
-  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
-    .then(res => res.json())
-    .then(
-      (result) => {
-        !this.isCancelled && this.setState({
-          isLoaded: true,
-          things: result,
-        });
-
-      },
-
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      },
-
-      //console.log(this.state.things),
-    )
-}
-
-  componentDidMount() {
-
-
-    fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            things: result,
-          });
-
-        },
-
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        },
-
-      )
+  componentDidMount(){
+    this.props.nodirect();
   }
 
   render() {
-    const { error, isLoaded, things } = this.state;
+    const { error, isLoaded, things } = this.props;
 
 
     if (error) {
@@ -84,7 +28,7 @@ componentDidUpdate(){
           <TableHeader numeric name="rating" tooltip="Out of 5">Rating</TableHeader>
         </DataTable>
 
-        <Link to="/">
+        <Link to="/" onClick = {this.props.onNew}>
           <FABButton colored ripple style={{position: 'fixed',
           bottom: '20px',
           right: '20px'}}>

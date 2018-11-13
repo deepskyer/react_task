@@ -9,34 +9,10 @@ class Review extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      things: []
+      things: [],
+      unrated: 0
     };
   }
-
-  componentWillUnmount() {
-    this.isCancelled = true;
-}
-
-componentDidUpdate() {
-  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
-    .then(res => res.json())
-    .then(
-      (result) => {
-        !this.isCancelled && this.setState({
-          isLoaded: true,
-          things: result,
-
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      },
-
-    )
-}
 
   componentDidMount() {
     fetch('https://floating-bastion-48526.herokuapp.com/api/tasks')
@@ -46,7 +22,7 @@ componentDidUpdate() {
           this.setState({
             isLoaded: true,
             things: result,
-
+            unrated: result.filter(thing => thing.rating === null).length,
           });
 
         },
@@ -64,6 +40,7 @@ componentDidUpdate() {
 
   render() {
     const { error, isLoaded, things} = this.state;
+    const {onRead} = this.props;
 
 
     if (error) {
@@ -83,7 +60,9 @@ componentDidUpdate() {
                   {thing.content.length>=290?thing.content.substring(0, 290)+'...':thing.content}
               </CardText>
               <CardActions border>
-                  <Rating name={thing.title} rating={thing.rating} id={thing._id} title={thing.title} content={thing.content}/>
+                  <Rating name={thing.title} rating={thing.rating} id={thing._id} title={thing.title} content={thing.content}
+                  onRead = {onRead}
+                  />
               </CardActions>
           </Card></Cell>))}
           </Grid>

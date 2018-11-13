@@ -40,6 +40,8 @@ componentDidMount(){
 
      handleSubmit(event) {
         event.preventDefault();
+        if(this.props.rating === null) {
+        this.props.onRead();}
         this.setState({
           message: "You saved the rating to " + this.state.rating + ".",
           style: {backgroundColor:'#6eb544', color:'white'},

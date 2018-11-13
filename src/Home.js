@@ -7,6 +7,7 @@ import welcomecard from './img/welcome_card.jpg';
 
 class Home extends React.Component {
   render() {
+    const {things, toTasklist, onAdd, onTitleChange, onContentChange} =this.props;
     return (
       <div className="welcome">
         <Card shadow={0} style={{margin: 'auto'}}>
@@ -15,7 +16,13 @@ class Home extends React.Component {
             <CardText>
                 Please add a new task to review.
             </CardText>
-            <Edit />
+            <Edit
+            things= {things}
+            toTasklist= {toTasklist}
+            onAdd = {onAdd}
+            onTitleChange ={onTitleChange}
+            onContentChange = {onContentChange}
+            />
         </Card>
       </div>
     );

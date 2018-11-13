@@ -9,7 +9,6 @@ class Taskview extends React.Component {
       error: null,
       isLoaded: false,
       thing: null,
-      toTasklist: false,
       toReview: false
     };
   }
@@ -17,6 +16,7 @@ class Taskview extends React.Component {
 
 
   componentDidMount() {
+
 
     let url='https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.props.match.params.id;
 
@@ -42,16 +42,6 @@ class Taskview extends React.Component {
   }
 
 
-  deleteHandler=(event)=> {
-  console.log("delete");
-  fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+this.state.thing._id, {
-  			method: 'DELETE'
-  		});
-      this.setState({
-        toTasklist: true,
-      });
-  }
-
   reviewHandler=(event)=>{
     this.setState({
       toReview: true,
@@ -59,7 +49,8 @@ class Taskview extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, thing, toTasklist, toReview} = this.state;
+    const { error, isLoaded, thing, toReview} = this.state;
+    const {toTasklist} = this.props;
 
 if(toTasklist){return <Redirect to='/tasks' />}
 else if (toReview) {return <Redirect to='/review' />}
@@ -80,11 +71,11 @@ else if (toReview) {return <Redirect to='/review' />}
 Created At: {thing.createdAt.substring(0, 10)}</h4>
 <h4>Rating: {thing.rating}</h4>
 <br/>
-<p>lea{thing.content}</p>
+<p>{thing.content}</p>
 
         <hr />
 
-<Button onClick={this.deleteHandler} raised ripple accent>Delete</Button> <Button onClick={this.reviewHandler} raised colored ripple style={{marginLeft: '10px'}}>Review</Button>
+<Button onClick={() => this.props.onDelete(thing)} raised ripple accent>Delete</Button> <Button onClick={this.reviewHandler} raised colored ripple style={{marginLeft: '10px'}}>Review</Button>
 
         </div>
 
