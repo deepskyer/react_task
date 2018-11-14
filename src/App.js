@@ -128,7 +128,7 @@ class App extends Component {
         <div className="Nav">
           <Layout>
             <Header
-              title="{ Tasks Review }"
+              title="{ Tasks Tracker }"
               style={{ color: "#fff", background: "#1e2c39" }}
               scroll
             >
@@ -143,7 +143,7 @@ class App extends Component {
                         : this.state.unrated
                     }
                   >
-                    Review
+                    Update Status
                   </Badge>
                 </Link>
                 <Link to="/statistic">
@@ -153,7 +153,7 @@ class App extends Component {
               </Navigation>
             </Header>
 
-            <Drawer title="{ Tasks Review }">
+            <Drawer title="{ Tasks Tracker }">
               <Navigation>
                 <Link to="/">Home</Link>
                 <Link to="/create">Create</Link>
@@ -165,7 +165,7 @@ class App extends Component {
                         : this.state.unrated
                     }
                   >
-                    Review
+                    Update
                   </Badge>
                 </Link>
                 <Link to="/statistic">Statistic</Link>

@@ -58,9 +58,10 @@ class Taskview extends React.Component {
     } else {
       return (
         <div className="taskview">
-          <h1>{thing.title}</h1>
+          <h2>{thing.title}</h2>
           <h4>Created At: {thing.createdAt.substring(0, 10)}</h4>
-          <h4>Rating: {thing.rating}</h4>
+          <h4>Updated At: {thing.updatedAt.substring(0, 10)}</h4>
+          <h4>Status: {thing.rating===1?"Begin":thing.rating===2?"WIP":thing.rating===3?"Done":"Not started"}</h4>
           <br />
           <p>{thing.content}</p>
           <hr />

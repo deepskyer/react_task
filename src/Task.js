@@ -47,7 +47,7 @@ class Task extends Component {
             <TableHeader
               name="title"
               cellFormatter={title =>
-                title.length >= 10 ? title.substring(0, 10) + "..." : title
+                title.length >= 6 ? title.substring(0, 6) + "..." : title
               }
               tooltip="The task name"
             >
@@ -60,11 +60,14 @@ class Task extends Component {
             >
               Details
             </TableHeader>
-            <TableHeader numeric name="content" tooltip="Content Prview">
+            <TableHeader name="content"   cellFormatter={title =>
+                title.length >= 10 ? title.substring(0, 10) + "..." : title
+              }
+              tooltip="Content Prview">
               Content
             </TableHeader>
-            <TableHeader numeric name="rating" tooltip="rating">
-              Rating
+            <TableHeader name="rating" cellFormatter={(rating)=>`${rating===1?"Begin":rating===2?"WIP":rating===3?"Done":"Not started"}`} tooltip="Status of the tasks">
+              Status
             </TableHeader>
           </DataTable>
 

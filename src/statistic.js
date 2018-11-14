@@ -9,6 +9,7 @@ class Statistic extends Component {
       error: null,
       isLoaded: false,
       things: [],
+      begin: 0,
       good: 0,
       bad: 0,
       unrated: 0,
@@ -26,8 +27,9 @@ class Statistic extends Component {
           this.setState({
             isLoaded: true,
             things: result,
-            good: result.filter(thing => thing.rating >= 3).length,
-            bad: result.filter(thing => thing.rating < 3 && thing.rating !== 0 && thing.rating !== null).length,
+            begin: result.filter(thing => thing.rating === 1).length,
+            wip : result.filter(thing => thing.rating === 2).length,
+            done: result.filter(thing => thing.rating === 3).length,
             unrated: result.filter(thing => thing.rating === null).length,
             limit: result.length,
           });
@@ -45,10 +47,10 @@ class Statistic extends Component {
   }
 
   render() {
-    const { error, isLoaded, things, good, bad, unrated } = this.state;
+    const { error, isLoaded, things, begin, wip, done, unrated } = this.state;
 
     const data = {
-    labels: ['Good', 'Bad', 'Unrated'],
+    labels: ['Not Started', 'Begin', 'WIP', 'Done'],
     datasets: [
       {
         label: 'My tasks',
@@ -57,7 +59,7 @@ class Statistic extends Component {
         borderWidth: 0,
         hoverBackgroundColor: 'rgba(255, 255, 255, 0.9)',
         hoverBorderColor: 'rgba(255, 255, 255, 0.9)',
-        data: [good, bad, unrated]
+        data: [unrated, begin, wip, done]
       }
     ]
   };
@@ -104,7 +106,7 @@ class Statistic extends Component {
           </div></CardTitle>
           <CardText style={{textAlign: 'left', height: '120px'}}>
 
-          There are {good} good tasks, there are {bad} bad tasks and {unrated} unrated tasks.
+          There are {begin} just started tasks, there are {wip} WIP tasks,  and {unrated} tasks have not started. {(done===0)?"None":done} tasks have been finished.
           <br/>
           <h3 style={{weight: 'bold', color: '#000'}}>{things.length} Tasks</h3>
           <br/>

@@ -7,9 +7,7 @@ class Rating extends React.Component {
     super(props);
     this.state = {
       rating: "",
-      message: this.props.rating
-        ? "Rated " + this.props.rating
-        : "Not rate yet.",
+      message: this.props.rating===1?"Just begin.":this.props.rating===2?"Work in progress.":this.props.rating===3?"Finished.":"Not started yet.",
       title: this.props.title,
       content: this.props.content,
       toTasklist: false,
@@ -31,7 +29,7 @@ class Rating extends React.Component {
     this.setState({
       rating: event.target.value,
       style: { backgroundColor: "#eec168", color: "Black" },
-      message: "Please save your rating."
+      message: "Please save your update."
     });
   }
 
@@ -41,7 +39,7 @@ class Rating extends React.Component {
       this.props.onRead(this.state.rating);
     }
     this.setState({
-      message: "You saved the rating to " + this.state.rating + ".",
+      message: "You have updated the status successfully.",
       style: { backgroundColor: "#6eb544", color: "white" }
     });
     fetch(
@@ -61,9 +59,6 @@ class Rating extends React.Component {
     ).then(res => res.json())
     .then(result => {
       this.props.onUpdate(result);
-      // this.setState({
-      //   things: result,
-      // }).then(console.log(this.state.things));
     })
   }
 
@@ -71,47 +66,33 @@ class Rating extends React.Component {
     return (
       <div className="rating">
         <form onSubmit={this.handleSubmit}>
-          <label>Rate: </label>
+          <br />
           <input
             type="radio"
-            name="pain"
+            name="status"
             value="1"
             defaultChecked={this.props.rating === 1}
             onChange={this.handleChange}
           />
-          1
+          BEGIN <span style={{marginLeft: "10px"}}/>
           <input
             type="radio"
-            name="pain"
+            name="status"
             value="2"
             defaultChecked={this.props.rating === 2}
             onChange={this.handleChange}
           />
-          2
+          WIP <span style={{marginLeft: "10px"}}/>
           <input
             type="radio"
-            name="pain"
+            name="status"
             value="3"
             defaultChecked={this.props.rating === 3}
             onChange={this.handleChange}
           />
-          3
-          <input
-            type="radio"
-            name="pain"
-            value="4"
-            defaultChecked={this.props.rating === 4}
-            onChange={this.handleChange}
-          />
-          4
-          <input
-            type="radio"
-            name="pain"
-            value="5"
-            defaultChecked={this.props.rating === 5}
-            onChange={this.handleChange}
-          />
-          5<Button colored>Save</Button>
+          DONE
+          <br/>
+      <Button raised colored style={{marginTop: "20px"}}>Save</Button>
         </form>
         <br />
         <Chip style={this.state.style}>{this.state.message}</Chip> <br />

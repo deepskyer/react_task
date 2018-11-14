@@ -25,7 +25,7 @@ class CreateNew extends Component {
           >
             New task
           </CardTitle>
-          <CardText>Please add a new task to review.</CardText>
+          <CardText>Please add a new task to track.</CardText>
           <form id="task" onSubmit={onAdd}>
             <Textfield
               onChange={onTitleChange}
