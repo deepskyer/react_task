@@ -4,14 +4,21 @@ import {Icon, Spinner, CardTitle, CardText, CardActions, Card, Grid, Cell} from 
 import './style/task.css';
 
 class Review extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      things: [],
-      unrated: 0
+      things: props.things,
+      unrated: props.things.filter(f=>f.rating === null).length
     };
+  }
+
+  componentWillUnmount(){
+    this.setState({
+      things: [],
+      unrated: 0,
+    });
   }
 
   componentDidMount() {
@@ -40,7 +47,7 @@ class Review extends Component {
 
   render() {
     const { error, isLoaded, things} = this.state;
-    const {onRead} = this.props;
+
 
 
     if (error) {
@@ -49,7 +56,7 @@ class Review extends Component {
       return <div style={{margin: '300px auto', width: '200px'}}><Spinner/></div>;
     } else {
 
-
+      const {onRead} = this.props;
       return (
         <div className="feedback" style={{width: '90%', margin: 'auto'}}>
           <div style ={{marginTop: '30px'}}>
@@ -60,7 +67,7 @@ class Review extends Component {
                   {thing.content.length>=290?thing.content.substring(0, 290)+'...':thing.content}
               </CardText>
               <CardActions border>
-                  <Rating name={thing.title} rating={thing.rating} id={thing._id} title={thing.title} content={thing.content}
+                  <Rating name={thing.title} rating={thing.rating} id={thing._id} title={thing.title} content={thing.content} onUpdate = {this.props.onUpdate}
                   onRead = {onRead}
                   />
               </CardActions>

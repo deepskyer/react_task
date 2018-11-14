@@ -10,6 +10,7 @@ class Task extends Component {
   render() {
     const { error, isLoaded, things } = this.props;
 
+
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -18,7 +19,26 @@ class Task extends Component {
           <Spinner />
         </div>
       );
-    } else {
+    }
+    else if (things.length === 0) {
+      return (
+        <div style={{ margin: "300px auto", width: "200px" }}>
+          No task, Please create one.
+
+          <Link to="/create" onClick={this.props.onNew}>
+            <FABButton
+              colored
+              ripple
+              style={{ position: "fixed", bottom: "20px", right: "20px" }}
+            >
+              <Icon name="add" />
+            </FABButton>
+          </Link>
+
+        </div>
+      );
+    }
+    else {
       return (
         <div className="task">
           <h4>The list of all tasks.</h4>
@@ -43,9 +63,12 @@ class Task extends Component {
             <TableHeader numeric name="content" tooltip="Content Prview">
               Content
             </TableHeader>
+            <TableHeader numeric name="rating" tooltip="rating">
+              Rating
+            </TableHeader>
           </DataTable>
 
-          <Link to="/" onClick={this.props.onNew}>
+          <Link to="/create" onClick={this.props.onNew}>
             <FABButton
               colored
               ripple

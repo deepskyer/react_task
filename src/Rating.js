@@ -38,7 +38,7 @@ class Rating extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.props.rating === null) {
-      this.props.onRead();
+      this.props.onRead(this.state.rating);
     }
     this.setState({
       message: "You saved the rating to " + this.state.rating + ".",
@@ -58,7 +58,13 @@ class Rating extends React.Component {
           rating: this.state.rating
         })
       }
-    );
+    ).then(res => res.json())
+    .then(result => {
+      this.props.onUpdate(result);
+      // this.setState({
+      //   things: result,
+      // }).then(console.log(this.state.things));
+    })
   }
 
   render() {

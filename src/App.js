@@ -5,7 +5,7 @@ import Task from "./Task";
 import Statistic from "./statistic";
 import Review from "./Review";
 import { Drawer, Icon, Badge, Layout, Header, Navigation } from "react-mdl";
-import Home from "./Home";
+import CreateNew from "./newTask";
 import Taskview from "./Taskview";
 
 class App extends Component {
@@ -25,6 +25,13 @@ class App extends Component {
   onRead = () => {
     this.setState({ unrated: this.state.unrated - 1 });
   };
+
+  updateRating = (item) => {
+    console.log(item);
+    const remain = this.state.things.filter(t => t._id !== item._id);
+    console.log("remain", remain);
+    this.setState({things: [...remain, item]})
+  }
 
   handleDirect = event => {
     this.setState({ toTasklist: false });
@@ -69,7 +76,6 @@ class App extends Component {
           things: things,
           unrated: things.filter(thing => thing.rating === null).length,
           toTasklist: true,
-          require: false
         });
       });
   };
@@ -127,8 +133,8 @@ class App extends Component {
               scroll
             >
               <Navigation>
-                <Link to="/">New</Link>
-                <Link to="/tasks">Tasks</Link>
+                <Link to="/">Home</Link>
+                <Link to="/create">Create</Link>
                 <Link to="/review">
                   <Badge
                     text={
@@ -149,8 +155,8 @@ class App extends Component {
 
             <Drawer title="{ Tasks Review }">
               <Navigation>
-                <Link to="/">New</Link>
-                <Link to="/tasks">Tasks</Link>
+                <Link to="/">Home</Link>
+                <Link to="/create">Create</Link>
                 <Link to="/review">
                   <Badge
                     text={
@@ -170,7 +176,21 @@ class App extends Component {
               exact
               path="/"
               render={props => (
-                <Home
+                <Task
+                  {...props}
+                  error={error}
+                  isLoaded={isLoaded}
+                  things={things}
+                  toTasklist={toTasklist}
+                  nodirect={this.handleDirect}
+                />
+              )}
+            />
+
+            <Route
+              path="/create"
+              render={props => (
+                <CreateNew
                   {...props}
                   error={error}
                   isLoaded={isLoaded}
@@ -186,20 +206,6 @@ class App extends Component {
             />
 
             <Route
-              path="/tasks"
-              render={props => (
-                <Task
-                  {...props}
-                  error={error}
-                  isLoaded={isLoaded}
-                  things={things}
-                  toTasklist={toTasklist}
-                  nodirect={this.handleDirect}
-                />
-              )}
-            />
-
-            <Route
               path="/review"
               render={props => (
                 <Review
@@ -207,6 +213,7 @@ class App extends Component {
                   unrated={unrated}
                   things={things}
                   onRead={this.onRead}
+                  onUpdate ={this.updateRating}
                 />
               )}
             />

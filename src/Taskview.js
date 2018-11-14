@@ -48,7 +48,7 @@ class Taskview extends React.Component {
     const { toTasklist } = this.props;
 
     if (toTasklist) {
-      return <Redirect to="/tasks" />;
+      return <Redirect to="/" />;
     } else if (toReview) {
       return <Redirect to="/review" />;
     } else if (error) {
