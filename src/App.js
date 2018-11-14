@@ -32,17 +32,19 @@ class App extends Component {
   }
 
   handleDelete=(thing)=> {
+    if(thing.rating === null) {
+      this.onRead();
+    }
   console.log("delete");
   fetch('https://floating-bastion-48526.herokuapp.com/api/tasks/'+thing._id, {
   			method: 'DELETE'
   		});
       const newdata = this.state.things.filter(t => t._id !== thing._id);
-      const newrating = this.state.things.filter(t => t._id !== thing._id).length;
+      const newrating = this.state.things.filter(t => t.rating === null).length;
       console.log(newrating);
       this.setState({
         toTasklist: true,
         things: newdata,
-        unrated: newrating
       });
   }
 
