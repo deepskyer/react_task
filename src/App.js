@@ -27,9 +27,7 @@ class App extends Component {
   };
 
   updateRating = (item) => {
-    console.log(item);
     const remain = this.state.things.filter(t => t._id !== item._id);
-    console.log("remain", remain);
     this.setState({things: [...remain, item]})
   }
 

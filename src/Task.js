@@ -47,7 +47,7 @@ class Task extends Component {
             <TableHeader
               name="title"
               cellFormatter={title =>
-                title.length >= 6 ? title.substring(0, 6) + "..." : title
+                title.length >= 3 ? title.substring(0, 3) + "..." : title
               }
               tooltip="The task name"
             >
@@ -61,7 +61,7 @@ class Task extends Component {
               Details
             </TableHeader>
             <TableHeader name="content"   cellFormatter={title =>
-                title.length >= 10 ? title.substring(0, 10) + "..." : title
+                title.length >= 4 ? title.substring(0, 4) + "..." : title
               }
               tooltip="Content Prview">
               Content

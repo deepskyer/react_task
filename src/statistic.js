@@ -50,7 +50,7 @@ class Statistic extends Component {
     const { error, isLoaded, things, begin, wip, done, unrated } = this.state;
 
     const data = {
-    labels: ['Not Started', 'Begin', 'WIP', 'Done'],
+    labels: ['Todo', 'Start', 'WIP', 'Done'],
     datasets: [
       {
         label: 'My tasks',
