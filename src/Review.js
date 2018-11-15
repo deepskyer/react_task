@@ -14,6 +14,16 @@ class Review extends Component {
     };
   }
 
+  creatCard = () => {
+    var cellRow = []
+    var i,j,temparray,chunk = 3;
+for (i=0,j=this.state.things.length; i<j; i+=chunk) {
+  temparray = this.state.things.slice(i,i+chunk);
+  cellRow.push(<cell>temparray[0]</cell>);
+  console.log(cellRow);
+}
+  }
+
   componentWillUnmount(){
     this.setState({
       things: [],
@@ -48,7 +58,7 @@ class Review extends Component {
   render() {
     const { error, isLoaded, things} = this.state;
 
-
+    this.creatCard();
 
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -57,11 +67,14 @@ class Review extends Component {
     } else {
 
       const {onRead} = this.props;
+
+
+
       return (
-        <div className="feedback" style={{width: '90%', margin: 'auto'}}>
+        <div className="feedback" style={{width: '90%', margin: '0'}}>
           <div style ={{marginTop: '30px'}}>
           <Grid>
-          {things.slice(0).reverse().map(thing => (<Cell key={thing._id} col={3}><Card  shadow={0} style={{width: '320px', height: '350px', margin: '15px'}}>
+          <Cell  col={3}>{things.slice(0).map(thing => (<Card key={thing._id} shadow={0} style={{width: '320px', height: '350px', marginLeft: '50px', marginTop: '30px'}}>
               <CardTitle expand style={{color: '#fff', background: '#4a148c'}}><Icon name="assignment" style={{marginRight: '9px'}}/>{thing.title.length>=30?thing.title.substring(0, 30)+'...':thing.title}</CardTitle>
               <CardText style={{color: '#565656', background: '#fff', textAlign: 'left', height: '120px'}}>
                   {thing.content.length>=290?thing.content.substring(0, 290)+'...':thing.content}
@@ -71,7 +84,7 @@ class Review extends Component {
                   onRead = {onRead}
                   />
               </CardActions>
-          </Card></Cell>))}
+          </Card>))}</Cell>
           </Grid>
           </div>
         </div>
