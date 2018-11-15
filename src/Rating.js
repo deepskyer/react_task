@@ -7,7 +7,14 @@ class Rating extends React.Component {
     super(props);
     this.state = {
       rating: "",
-      message: this.props.rating===1?"Just begin.":this.props.rating===2?"Work in progress.":this.props.rating===3?"Finished.":"Not started yet.",
+      message:
+        this.props.rating === 1
+          ? "Just begin."
+          : this.props.rating === 2
+          ? "Work in progress."
+          : this.props.rating === 3
+          ? "Finished."
+          : "Not started yet.",
       title: this.props.title,
       content: this.props.content,
       toTasklist: false,
@@ -56,10 +63,11 @@ class Rating extends React.Component {
           rating: this.state.rating
         })
       }
-    ).then(res => res.json())
-    .then(result => {
-      this.props.onUpdate(result);
-    })
+    )
+      .then(res => res.json())
+      .then(result => {
+        this.props.onUpdate(result);
+      });
   }
 
   render() {
@@ -74,7 +82,7 @@ class Rating extends React.Component {
             defaultChecked={this.props.rating === 1}
             onChange={this.handleChange}
           />
-          BEGIN <span style={{marginLeft: "10px"}}/>
+          BEGIN <span style={{ marginLeft: "10px" }} />
           <input
             type="radio"
             name="status"
@@ -82,7 +90,7 @@ class Rating extends React.Component {
             defaultChecked={this.props.rating === 2}
             onChange={this.handleChange}
           />
-          WIP <span style={{marginLeft: "10px"}}/>
+          WIP <span style={{ marginLeft: "10px" }} />
           <input
             type="radio"
             name="status"
@@ -91,8 +99,10 @@ class Rating extends React.Component {
             onChange={this.handleChange}
           />
           DONE
-          <br/>
-      <Button raised colored style={{marginTop: "20px"}}>Save</Button>
+          <br />
+          <Button raised colored style={{ marginTop: "20px" }}>
+            Save
+          </Button>
         </form>
         <br />
         <Chip style={this.state.style}>{this.state.message}</Chip> <br />
