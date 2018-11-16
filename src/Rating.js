@@ -42,9 +42,9 @@ class Rating extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (this.props.rating === null) {
+    if(this.props.rating === null){
       this.props.onRead(this.state.rating);
-    }
+      }
     this.setState({
       message: "You have updated the status successfully.",
       style: { backgroundColor: "#FFF", border: "1px solid #68D091", color: "#68D091" }
@@ -80,6 +80,7 @@ class Rating extends React.Component {
         <input
           type="radio"
           name="status"
+          required
           value="1"
           defaultChecked={this.props.rating === 1}
           onChange={this.handleChange}

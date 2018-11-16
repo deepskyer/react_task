@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   onRead = () => {
-    this.setState({ unrated: this.state.unrated - 1 });
+    this.setState({ unrated: this.state.unrated - 1});
   };
 
   updateRating = (item) => {
