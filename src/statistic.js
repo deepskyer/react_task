@@ -98,7 +98,7 @@ class Statistic extends Component {
 
 
       return (
-        <div style={{width: '80%', margin: '30px auto'}}>
+        <div style={{width: '80%', margin: '30px auto', textAlign: 'center'}}>
         <h4>This is an assessment of tasks</h4>
         <Card shadow={0} style={{margin: 'auto'}}>
           <CardTitle expand style={{color: '#fff', backgroundImage: 'linear-gradient(to bottom right, #A471E1, #6C77E1)'}}><div className="barChart" >
