@@ -119,7 +119,10 @@ class Review extends Component {
       );
     } else {
       return (
-        <div className="feedback" style={{ padding: "20px", margin: "0" }}>
+        <div
+          className="feedback"
+          style={{ padding: "20px", marginLeft: "12px" }}
+        >
           <div style={{ marginTop: "30px" }}>{this.creatCard()}</div>
         </div>
       );
