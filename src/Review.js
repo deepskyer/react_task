@@ -22,13 +22,20 @@ class Review extends Component {
   }
 
   creatCard = () => {
+
+
     var cellRow = [];
     var i,
       j,
       temparray,
       chunk = 3;
     for (i = 0, j = this.state.things.length; i < j; i += chunk) {
-      temparray = this.state.things.slice(i, i + chunk);
+      if(this.props.location.state === undefined) {
+            temparray = this.state.things.slice(0).slice(i, i + chunk);
+          }
+          else{
+            temparray = [this.props.location.state.thing].slice(i, i + chunk);
+          }
       const el = temparray.map(thing => (
         <Card
           id="taskcard"
@@ -119,7 +126,7 @@ class Review extends Component {
           className="feedback"
           style={{ padding: "20px", marginLeft: "12px" }}
         >
-          <div style={{ marginTop: "30px" }}>{this.creatCard()}</div>
+          <div style={{ marginTop: "10px" }}>{this.creatCard()}</div>
         </div>
       );
     }

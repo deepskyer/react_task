@@ -23,7 +23,7 @@ class Task extends Component {
     else if (things.length === 0) {
       return (
         <div style={{ margin: "300px auto", width: "200px" }}>
-          No task, Please create one.
+          No task. Please create one.
 
           <Link to="/create" onClick={this.props.onNew}>
             <FABButton
@@ -44,11 +44,11 @@ class Task extends Component {
         <div className="task">
           <h4>The list of all tasks.</h4>
 
-          <DataTable id="tasklist" style={{ boxShadow: '1px 3px 20px 0px rgba(0,0,0,0.04)'}}  shadow={0} rows={things.slice(0).reverse()}>
+          <DataTable id="tasklist" shadow={0} rows={things.slice(0).reverse()}>
             <TableHeader
               name="title"
               cellFormatter={title =>
-                title.length >= 3 ? title.substring(0, 3) + "..." : title
+                title.length >= 8 ? title.substring(0, 8) + "..." : title
               }
               tooltip="The task name"
             >
@@ -60,12 +60,6 @@ class Task extends Component {
               tooltip="The details of the task."
             >
               Details
-            </TableHeader>
-            <TableHeader name="content"   cellFormatter={title =>
-                title.length >= 4 ? title.substring(0, 4) + "..." : title
-              }
-              tooltip="Content Prview">
-              Content
             </TableHeader>
             <TableHeader name="rating"  cellFormatter={(rating)=><Chip style={{backgroundColor: `${rating===1?"#48B7ED":rating===2?"#7ED450":rating===3?"#6450D4":"#FF6268"}`, color: "white"}}>{rating===1?"Begin":rating===2?"WIP":rating===3?"Done":"Not started"}</Chip> } tooltip="Status of the tasks">
               Status

@@ -9,16 +9,16 @@ class Rating extends React.Component {
       rating: "",
       message:
         this.props.rating === 1
-          ? "Just begin."
+          ? ""
           : this.props.rating === 2
-          ? "Work in progress."
+          ? ""
           : this.props.rating === 3
-          ? "Finished."
+          ? ""
           : "Not started yet.",
       title: this.props.title,
       content: this.props.content,
       toTasklist: false,
-      style: { border: "1px solid #6873D0", backgroundColor: "#FFF", color: "#6873D0"  }
+      style: { border: "0px solid #6873D0", backgroundColor: "#FFF", color: "#6873D0"  }
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -109,6 +109,7 @@ class Rating extends React.Component {
         <br/>
     <Button id="save" style={{marginTop: "20px"}}>Save</Button>
       </form>
+
       </div>
     );
   }

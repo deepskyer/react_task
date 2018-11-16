@@ -18,7 +18,8 @@ class App extends Component {
       content: null,
       toTasklist: false,
       isLoaded: false,
-      things: []
+      things: [],
+      thing:null
     };
   }
 
@@ -117,6 +118,7 @@ class App extends Component {
       unrated,
       toTasklist,
       things,
+      thing,
       title,
       content
     } = this.state;
@@ -211,6 +213,7 @@ class App extends Component {
                   {...props}
                   unrated={unrated}
                   things={things}
+                  thing={thing}
                   onRead={this.onRead}
                   onUpdate ={this.updateRating}
                 />

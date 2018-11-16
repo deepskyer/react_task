@@ -8,8 +8,19 @@
 .taskview {
   text-align: left;
   color:#8DA9B0;
-  margin: 50px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 30px;
+  max-width: 600px;
+  padding: 0 45px;
+}
+
+.taskview h2 {
+  font-size: 30px;
+}
+
+.taskview h4 {
+  font-size: 16px;
 }
 
 
@@ -26,6 +37,11 @@
 #tasklist {
   border-radius: 7px;
   border: 0px;
+  box-shadow: 1px 3px 20px 0px rgba(0,0,0,0.04);
+}
+
+#tasklist:hover {
+  box-shadow: 1px 3px 20px 0px rgba(0,0,0,0.12);
 }
 
 #tasklist a{

@@ -50,7 +50,10 @@ class Taskview extends React.Component {
     if (toTasklist) {
       return <Redirect to="/" />;
     } else if (toReview) {
-      return <Redirect to="/review" />;
+      return <Redirect  to={{
+            pathname: '/review',
+            state: { thing: thing }
+        }} />;
     } else if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -59,8 +62,7 @@ class Taskview extends React.Component {
       return (
         <div className="taskview">
           <h2>{thing.title}</h2>
-          <h4>Created At: {thing.createdAt.substring(0, 10)}</h4>
-          <h4>Updated At: {thing.updatedAt.substring(0, 10)}</h4>
+          <h4>Created At: {thing.createdAt.substring(0, 10)} | Updated At: {thing.updatedAt.substring(0, 10)}</h4>
           <h4>Status: {thing.rating===1?"Begin":thing.rating===2?"WIP":thing.rating===3?"Done":"Not started"}</h4>
           <br />
           <p>{thing.content}</p>

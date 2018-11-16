@@ -106,7 +106,7 @@ class Statistic extends Component {
           </div></CardTitle>
           <CardText style={{textAlign: 'left', height: '120px', color: '#CDCDCD'}}>
 
-          There are {begin} just started tasks, there are {wip} WIP tasks,  and {unrated} tasks have not started. {(done===0)?"None":done} tasks have been finished.
+          {begin} {begin>1?"tasks get":"task gets"} started. There {wip>1?"are":"is"} {wip} {wip>1?"tasks":"task"} in process,  and {unrated} {unrated>1?"tasks have":"task has"} not been started. {(done===0)?"None":done} {done>1?"tasks have": " task has"} been finished.
           <br/>
           <h3 style={{weight: 'bold', color: '#787878'}}>{things.length} Tasks</h3>
           <br/>
