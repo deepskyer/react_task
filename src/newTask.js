@@ -15,7 +15,7 @@ class CreateNew extends Component {
     return (
 
       <div className="welcome">
-        <Card shadow={0} style={{ margin: "auto" }}>
+        <Card id="welcome" style={{ margin: "auto" }}>
           <CardTitle
             style={{
               color: "#fff",
@@ -30,6 +30,7 @@ class CreateNew extends Component {
             <Textfield
               onChange={onTitleChange}
               label="Task Name"
+              id="name"
               style={{ width: "200px" }}
             />
             <br />
@@ -43,7 +44,7 @@ class CreateNew extends Component {
           </form>
 
           <CardActions>
-            <Button raised colored type="submit" form="task" value="Submit">
+            <Button id="create" type="submit" form="task" value="Submit">
               Add
             </Button>
           </CardActions>

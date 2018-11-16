@@ -101,14 +101,14 @@ class Statistic extends Component {
         <div style={{width: '80%', margin: '30px auto'}}>
         <h4>This is an assessment of tasks</h4>
         <Card shadow={0} style={{margin: 'auto'}}>
-          <CardTitle expand style={{color: '#fff', background: '#4a148c'}}><div className="barChart" >
+          <CardTitle expand style={{color: '#fff', backgroundImage: 'linear-gradient(to bottom right, #A471E1, #6C77E1)'}}><div className="barChart" >
           <Bar data={data} width={50} height={50} options={options}/>
           </div></CardTitle>
-          <CardText style={{textAlign: 'left', height: '120px'}}>
+          <CardText style={{textAlign: 'left', height: '120px', color: '#CDCDCD'}}>
 
           There are {begin} just started tasks, there are {wip} WIP tasks,  and {unrated} tasks have not started. {(done===0)?"None":done} tasks have been finished.
           <br/>
-          <h3 style={{weight: 'bold', color: '#000'}}>{things.length} Tasks</h3>
+          <h3 style={{weight: 'bold', color: '#787878'}}>{things.length} Tasks</h3>
           <br/>
           </CardText>
         </Card>

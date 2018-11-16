@@ -1,4 +1,26 @@
-.Nav {
-  text-align: center;
-  margin-top: 0;
+#Nav i {
+  color: #8DA9B0;
+}
+
+#Nav a {
+  color: #8DA9B0;
+}
+
+#sidebar {
+  background: #FFFFFF;
+  color: #8DA9B0;
+}
+
+#sidebar a {
+  margin-left: 6px;
+  margin-right: 6px;
+  color: #000000;
+  border-radius: 6px;
+}
+
+#sidebar a:hover {
+  background: #DAF3FE;
+  color: #00A0FB;
+  margin-left: 6px;
+  margin-right: 6px;
 }

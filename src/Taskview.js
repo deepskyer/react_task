@@ -66,6 +66,7 @@ class Taskview extends React.Component {
           <p>{thing.content}</p>
           <hr />
           <Button
+            id="delete"
             onClick={() => this.props.onDelete(thing)}
             raised
             ripple
@@ -74,6 +75,7 @@ class Taskview extends React.Component {
             Delete
           </Button>{" "}
           <Button
+            id="updatestatus"
             onClick={this.reviewHandler}
             raised
             colored

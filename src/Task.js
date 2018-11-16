@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FABButton, Icon, Spinner, DataTable, TableHeader } from "react-mdl";
+import { Chip, FABButton, Icon, Spinner, DataTable, TableHeader } from "react-mdl";
 import { Link } from "react-router-dom";
 
 class Task extends Component {
@@ -27,6 +27,7 @@ class Task extends Component {
 
           <Link to="/create" onClick={this.props.onNew}>
             <FABButton
+              id="plus"
               colored
               ripple
               style={{ position: "fixed", bottom: "20px", right: "20px" }}
@@ -43,7 +44,7 @@ class Task extends Component {
         <div className="task">
           <h4>The list of all tasks.</h4>
 
-          <DataTable shadow={0} rows={things.slice(0).reverse()}>
+          <DataTable id="tasklist" style={{ boxShadow: '1px 3px 20px 0px rgba(0,0,0,0.04)'}}  shadow={0} rows={things.slice(0).reverse()}>
             <TableHeader
               name="title"
               cellFormatter={title =>
@@ -66,13 +67,14 @@ class Task extends Component {
               tooltip="Content Prview">
               Content
             </TableHeader>
-            <TableHeader name="rating" cellFormatter={(rating)=>`${rating===1?"Begin":rating===2?"WIP":rating===3?"Done":"Not started"}`} tooltip="Status of the tasks">
+            <TableHeader name="rating"  cellFormatter={(rating)=><Chip style={{backgroundColor: `${rating===1?"#48B7ED":rating===2?"#7ED450":rating===3?"#6450D4":"#FF6268"}`, color: "white"}}>{rating===1?"Begin":rating===2?"WIP":rating===3?"Done":"Not started"}</Chip> } tooltip="Status of the tasks">
               Status
             </TableHeader>
           </DataTable>
 
           <Link to="/create" onClick={this.props.onNew}>
             <FABButton
+              id="plus"
               colored
               ripple
               style={{ position: "fixed", bottom: "20px", right: "20px" }}

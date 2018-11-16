@@ -123,11 +123,12 @@ class App extends Component {
 
     return (
       <Router>
-        <div className="Nav">
+        <div id="Nav">
           <Layout>
             <Header
               title="{ Tasks Tracker }"
-              style={{ color: "#fff", background: "#1e2c39" }}
+              style={{ color: "#8DA9B0", background: "#fff",
+              borderBottom: "1px solid #E3EDF0" }}
               scroll
             >
               <Navigation>
@@ -151,7 +152,7 @@ class App extends Component {
               </Navigation>
             </Header>
 
-            <Drawer title="{ Tasks Tracker }">
+            <Drawer id = "sidebar" title="{ Tasks Tracker }">
               <Navigation>
                 <Link to="/">Home</Link>
                 <Link to="/create">Create</Link>

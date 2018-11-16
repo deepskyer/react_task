@@ -18,7 +18,7 @@ class Rating extends React.Component {
       title: this.props.title,
       content: this.props.content,
       toTasklist: false,
-      style: { color: "black" }
+      style: { border: "1px solid #6873D0", backgroundColor: "#FFF", color: "#6873D0"  }
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,7 @@ class Rating extends React.Component {
   componentDidMount() {
     if (this.props.rating === null || this.props.rating === "") {
       this.setState({
-        style: { backgroundColor: "#ff2d70", color: "white" }
+        style: { backgroundColor: "#FFF", border: "1px solid #FF7377", color: "#FF7377" }
       });
     }
   }
@@ -35,7 +35,7 @@ class Rating extends React.Component {
   handleChange(event) {
     this.setState({
       rating: event.target.value,
-      style: { backgroundColor: "#eec168", color: "Black" },
+      style: { border: "1px solid #9168D0", backgroundColor: "#FFF", color: "#9168D0"  },
       message: "Please save your update."
     });
   }
@@ -47,7 +47,7 @@ class Rating extends React.Component {
     }
     this.setState({
       message: "You have updated the status successfully.",
-      style: { backgroundColor: "#6eb544", color: "white" }
+      style: { backgroundColor: "#FFF", border: "1px solid #68D091", color: "#68D091" }
     });
     fetch(
       "https://floating-bastion-48526.herokuapp.com/api/tasks/" + this.props.id,
@@ -73,40 +73,42 @@ class Rating extends React.Component {
   render() {
     return (
       <div className="rating">
-        <form onSubmit={this.handleSubmit}>
-          <br />
-          <input
-            type="radio"
-            name="status"
-            value="1"
-            defaultChecked={this.props.rating === 1}
-            onChange={this.handleChange}
-          />
-          BEGIN <span style={{ marginLeft: "10px" }} />
-          <input
-            type="radio"
-            name="status"
-            value="2"
-            defaultChecked={this.props.rating === 2}
-            onChange={this.handleChange}
-          />
-          WIP <span style={{ marginLeft: "10px" }} />
-          <input
-            type="radio"
-            name="status"
-            value="3"
-            defaultChecked={this.props.rating === 3}
-            onChange={this.handleChange}
-          />
-          DONE
-          <br />
-          <Button raised colored style={{ marginTop: "20px" }}>
-            Save
-          </Button>
-        </form>
+      <form onSubmit={this.handleSubmit}>
+      <Chip style={this.state.style}>{this.state.message}</Chip> <br />
         <br />
-        <Chip style={this.state.style}>{this.state.message}</Chip> <br />
-        <br />
+        <label className="container">BEGIN
+        <input
+          type="radio"
+          name="status"
+          value="1"
+          defaultChecked={this.props.rating === 1}
+          onChange={this.handleChange}
+        />
+         <span className="checkmark" style={{marginLeft: "10px"}}/>
+         </label>
+           <label className="container">WIP
+        <input
+          type="radio"
+          name="status"
+          value="2"
+          defaultChecked={this.props.rating === 2}
+          onChange={this.handleChange}
+        />
+         <span className="checkmark" style={{marginLeft: "10px"}}/>
+         </label>
+         <label className="container">DONE
+        <input
+          type="radio"
+          name="status"
+          value="3"
+          defaultChecked={this.props.rating === 3}
+          onChange={this.handleChange}
+        />
+        <span className="checkmark" style={{marginLeft: "10px"}}/>
+        </label>
+        <br/>
+    <Button id="save" style={{marginTop: "20px"}}>Save</Button>
+      </form>
       </div>
     );
   }

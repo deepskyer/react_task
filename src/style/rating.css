@@ -1,6 +1,75 @@
+#save {
+  background: rgba(0,160,251,0.05);
+  border: 1px solid rgba(0,160,251,0.1);
+  color: #00A0FB;
+  border-radius: 6px;
+  text-transform: none;
+}
+
+#save:hover {
+  background: rgba(0,160,251,0.1);
+  border: 1px solid rgba(0,160,251,0.2)
+  }
+
 .rating {
   text-align: center;
   margin-bottom: 10px;
+  color: #628087;
+  font-size: 14px;
+}
+
+.container {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: auto;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    border: 2px solid #E3EDF0
+}
+
+.container:hover input ~ .checkmark {
+    border-color: #00A0FB;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: #00A0FB;
+    border-color: #00A0FB;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+ 	top: 4px;
+	left: 4px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: white;
 }
 
 .feedback {

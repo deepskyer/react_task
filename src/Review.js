@@ -31,18 +31,14 @@ class Review extends Component {
       temparray = this.state.things.slice(i, i + chunk);
       const el = temparray.map(thing => (
         <Card
-          className="taskcard"
+          id="taskcard"
           key={thing._id}
-          shadow={0}
           style={{
-            width: "320px",
-            height: "350px",
-            float: "left",
-            margin: "1rem",
-            position: "relative"
+            borderRadius: "7px",
+
           }}
         >
-          <CardTitle expand style={{ color: "#fff", background: "#4a148c" }}>
+          <CardTitle expand style={{ color: '#00A1FB', background: '#FFFFFF'}}>
             <Icon name="assignment" style={{ marginRight: "9px" }} />
             {thing.title.length >= 30
               ? thing.title.substring(0, 30) + "..."
@@ -50,7 +46,7 @@ class Review extends Component {
           </CardTitle>
           <CardText
             style={{
-              color: "#565656",
+              color: "#2F494F",
               background: "#fff",
               textAlign: "left",
               height: "120px"
@@ -60,7 +56,7 @@ class Review extends Component {
               ? thing.content.substring(0, 290) + "..."
               : thing.content}
           </CardText>
-          <CardActions border>
+          <CardActions>
             <Rating
               name={thing.title}
               rating={thing.rating}

@@ -1,16 +1,17 @@
 .task {
   text-align: center;
-  color: #666666;
+  color:#8DA9B0;
   margin: auto;
   margin-top: 20px;
 }
 
 .taskview {
   text-align: left;
-  color: #666666;
+  color:#8DA9B0;
   margin: 50px;
   margin-top: 30px;
 }
+
 
 .barChart {
   width: 100%;
@@ -22,7 +23,92 @@
   font-size: 16px;
 }
 
-.taskcard:hover {
-  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
-    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+#tasklist {
+  border-radius: 7px;
+  border: 0px;
+}
+
+#tasklist a{
+  color: #00A0FB;
+}
+
+#tasklist a:visited{
+  color: #B381CF;
+}
+
+#tasklist tbody tr:hover {
+background: #E9F8FF;
+}
+
+#tasklist tbody tr:nth-of-type(even) {
+  background: #F8FBFC;
+}
+
+#tasklist tbody tr:nth-of-type(even):hover {
+  background: #E9F8FF;
+}
+
+#tasklist tbody tr td{
+  border: 0px;
+}
+
+#plus {
+  background-image: linear-gradient(to bottom right, #d503ef, #6C77E1);
+}
+
+#plus i {
+ color: #fff;
+}
+
+#plus:hover {
+  -webkit-box-shadow: 0px 2px 13px -1px rgba(164,113,225,1);
+-moz-box-shadow: 0px 2px 13px -1px rgba(164,113,225,1);
+box-shadow: 0px 2px 13px -1px rgba(164,113,225,1);
+}
+
+#delete {
+  background: #FF6268;
+  color: #FFFFFF;
+  text-transform: none;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
+-moz-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
+box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
+}
+
+#delete:hover {
+  background: #FE1C25;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
+}
+
+#updatestatus {
+  background: #A389E7;
+  color: #FFFFFF;
+  text-transform: none;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
+-moz-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
+box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
+}
+
+#updatestatus:hover {
+  background: #9A78F5;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
+}
+
+#taskcard {
+    width: 320px;
+    height: 350px;
+    float: left;
+    margin: 1rem;
+    position: relative;
+    box-shadow: 1px 3px 20px 0px rgba(0,0,0,0.04);
+}
+
+#taskcard:hover {
+  box-shadow: 1px 3px 20px 0px rgba(0,0,0,0.12);
 }
