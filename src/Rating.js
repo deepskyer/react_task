@@ -6,7 +6,7 @@ class Rating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: "",
+      rating: this.props.rating,
       message:
         this.props.rating === 1
           ? ""
