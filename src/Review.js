@@ -29,7 +29,9 @@ class Review extends Component {
       chunk = 3;
     for (i = 0, j = this.state.things.length; i < j; i += chunk) {
       if (this.props.location.state === undefined) {
-        temparray = this.state.things.slice(0).slice(i, i + chunk);
+        temparray = this.state.things
+          .sort((a, b) => a.rating - b.rating)
+          .slice(i, i + chunk);
       } else {
         temparray = [
           this.props.location.state.thing,
