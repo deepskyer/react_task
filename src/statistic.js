@@ -116,7 +116,13 @@ class Statistic extends Component {
       );
     } else {
       return (
-        <div style={{ width: "80%", margin: "30px auto", textAlign: "center" }}>
+        <div
+          style={{
+            width: "80%",
+            margin: "30px auto",
+            textAlign: "center"
+          }}
+        >
           <h4>This is an assessment of tasks</h4>
           <Card id="stats" shadow={0} style={{ margin: "auto" }}>
             <CardTitle

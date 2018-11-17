@@ -149,7 +149,7 @@ class Review extends Component {
           className="feedback"
           style={{
             margin: "30px auto",
-            maxWidth: "83%",
+            maxWidth: "80%",
             textAlign: "center"
           }}
         >
