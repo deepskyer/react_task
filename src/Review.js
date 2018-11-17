@@ -45,7 +45,9 @@ class Review extends Component {
           id="taskcard"
           key={thing._id}
           style={{
-            borderRadius: "7px"
+            borderRadius: "7px",
+            marginLeft: "0px",
+            marginRight: "18px"
           }}
         >
           <CardTitle
@@ -146,10 +148,8 @@ class Review extends Component {
         <div
           className="feedback"
           style={{
-            padding: "24px",
             margin: "30px auto",
-            marginTop: "30px",
-            Width: "80%",
+            maxWidth: "83%",
             textAlign: "center"
           }}
         >
