@@ -1,14 +1,15 @@
 #Nav i {
-  color: #8DA9B0;
+  color: #8da9b0;
 }
 
 #Nav a {
-  color: #8DA9B0;
+  color: #8da9b0;
 }
 
 #sidebar {
-  background: #FFFFFF;
-  color: #8DA9B0;
+  background: #ffffff;
+  color: #8da9b0;
+  text-align: left;
 }
 
 #sidebar a {
@@ -19,8 +20,8 @@
 }
 
 #sidebar a:hover {
-  background: #DAF3FE;
-  color: #00A0FB;
+  background: #daf3fe;
+  color: #00a0fb;
   margin-left: 6px;
   margin-right: 6px;
 }

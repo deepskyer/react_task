@@ -22,41 +22,60 @@ class Review extends Component {
   }
 
   creatCard = () => {
-
-
     var cellRow = [];
     var i,
       j,
       temparray,
       chunk = 3;
     for (i = 0, j = this.state.things.length; i < j; i += chunk) {
-      if(this.props.location.state === undefined) {
-            temparray = this.state.things.slice(0).slice(i, i + chunk);
-          }
-          else{
-            temparray = [this.props.location.state.thing].slice(i, i + chunk);
-          }
+      if (this.props.location.state === undefined) {
+        temparray = this.state.things.slice(0).slice(i, i + chunk);
+      } else {
+        temparray = [
+          this.props.location.state.thing,
+          ...this.state.things.filter(
+            t => t._id !== this.props.location.state.thing._id
+          )
+        ].slice(i, i + chunk);
+      }
       const el = temparray.map(thing => (
         <Card
           id="taskcard"
           key={thing._id}
           style={{
-            borderRadius: "7px",
-
+            borderRadius: "7px"
           }}
         >
-          <CardTitle expand style={{ color: '#00A1FB', background: '#FFFFFF'}}>
+          <CardTitle
+            expand
+            style={{
+              color: "#00A1FB",
+              background: "#FFFFFF"
+            }}
+          >
             <Icon name="assignment" style={{ marginRight: "9px" }} />
             {thing.title.length >= 30
               ? thing.title.substring(0, 30) + "..."
               : thing.title}
           </CardTitle>
+          <span
+            style={{
+              color: "#C0C0C0",
+              textAlign: "left",
+              paddingLeft: "18px",
+              fontSize: "12px",
+              textTransform: "uppercase"
+            }}
+          >
+            Last Update: {thing.updatedAt.substring(0, 10)}
+          </span>
           <CardText
             style={{
               color: "#2F494F",
               background: "#fff",
               textAlign: "left",
-              height: "120px"
+              height: "120px",
+              paddingLeft: "18px"
             }}
           >
             {thing.content.length >= 290
@@ -124,9 +143,18 @@ class Review extends Component {
       return (
         <div
           className="feedback"
-          style={{ padding: "20px", marginLeft: "12px" }}
+          style={{ padding: "15px", marginLeft: "12px" }}
         >
-          <div style={{ marginTop: "10px" }}>{this.creatCard()}</div>
+          <div
+            style={{
+              marginTop: "30px",
+              maxWidth: "1780px",
+              marginLeft: "auto",
+              marginRight: "auto"
+            }}
+          >
+            {this.creatCard()}
+          </div>
         </div>
       );
     }

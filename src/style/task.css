@@ -1,13 +1,13 @@
 .task {
   text-align: center;
-  color:#8DA9B0;
+  color: #8da9b0;
   margin: auto;
   margin-top: 20px;
 }
 
 .taskview {
   text-align: left;
-  color:#8DA9B0;
+  color: #8da9b0;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
@@ -23,7 +23,6 @@
   font-size: 16px;
 }
 
-
 .barChart {
   width: 100%;
   height: 100%;
@@ -37,94 +36,94 @@
 #tasklist {
   border-radius: 7px;
   border: 0px;
-  box-shadow: 1px 3px 20px 0px rgba(0,0,0,0.04);
+  box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.04);
 }
 
 #tasklist:hover {
-  box-shadow: 1px 3px 20px 0px rgba(0,0,0,0.12);
+  box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.12);
 }
 
-#tasklist a{
-  color: #00A0FB;
+#tasklist a {
+  color: #00a0fb;
 }
 
-#tasklist a:visited{
-  color: #B381CF;
+#tasklist a:visited {
+  color: #b381cf;
 }
 
 #tasklist tbody tr:hover {
-background: #E9F8FF;
+  background: #e9f8ff;
 }
 
 #tasklist tbody tr:nth-of-type(even) {
-  background: #F8FBFC;
+  background: #f8fbfc;
 }
 
 #tasklist tbody tr:nth-of-type(even):hover {
-  background: #E9F8FF;
+  background: #e9f8ff;
 }
 
-#tasklist tbody tr td{
+#tasklist tbody tr td {
   border: 0px;
 }
 
 #plus {
-  background-image: linear-gradient(to bottom right, #d503ef, #6C77E1);
+  background-image: linear-gradient(to bottom right, #d503ef, #6c77e1);
 }
 
 #plus i {
- color: #fff;
+  color: #fff;
 }
 
 #plus:hover {
-  -webkit-box-shadow: 0px 2px 13px -1px rgba(164,113,225,1);
--moz-box-shadow: 0px 2px 13px -1px rgba(164,113,225,1);
-box-shadow: 0px 2px 13px -1px rgba(164,113,225,1);
+  -webkit-box-shadow: 0px 2px 13px -1px rgba(164, 113, 225, 1);
+  -moz-box-shadow: 0px 2px 13px -1px rgba(164, 113, 225, 1);
+  box-shadow: 0px 2px 13px -1px rgba(164, 113, 225, 1);
 }
 
 #delete {
-  background: #FF6268;
-  color: #FFFFFF;
+  background: #ff6268;
+  color: #ffffff;
   text-transform: none;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
--moz-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 1px 1.5px 0px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0px 1px 1.5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 1px 1.5px 0px rgba(0, 0, 0, 0.12);
 }
 
 #delete:hover {
-  background: #FE1C25;
-  -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
-  -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
+  background: #fe1c25;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.24);
 }
 
 #updatestatus {
-  background: #A389E7;
-  color: #FFFFFF;
+  background: #a389e7;
+  color: #ffffff;
   text-transform: none;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
--moz-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
-box-shadow: 0px 1px 1.5px 0px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0px 1px 1.5px 0px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0px 1px 1.5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 1px 1.5px 0px rgba(0, 0, 0, 0.12);
 }
 
 #updatestatus:hover {
-  background: #9A78F5;
-  -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
-  -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24);
+  background: #9a78f5;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.24);
 }
 
 #taskcard {
-    width: 320px;
-    height: 350px;
-    float: left;
-    margin: 1rem;
-    position: relative;
-    box-shadow: 1px 3px 20px 0px rgba(0,0,0,0.04);
+  width: 320px;
+  height: 350px;
+  float: left;
+  margin: 16px;
+  position: relative;
+  box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.04);
 }
 
 #taskcard:hover {
-  box-shadow: 1px 3px 20px 0px rgba(0,0,0,0.12);
+  box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.12);
 }

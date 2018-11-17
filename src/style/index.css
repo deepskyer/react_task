@@ -6,13 +6,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #EEF5F7;
-  color:#8DA9B0;
+  background-color: #eef5f7;
+  color: #8da9b0;
+  text-align: center;
 }
 
-
-
-a:link { color:#00A1FB; text-decoration:none;}
+a:link {
+  color: #00a1fb;
+  text-decoration: none;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
