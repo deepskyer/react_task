@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { Button, CardActions, Textfield, CardTitle, Card, CardText } from "react-mdl";
+import {
+  Button,
+  CardActions,
+  Textfield,
+  CardTitle,
+  Card,
+  CardText
+} from "react-mdl";
 import "./style/Home.css";
 import welcomecard from "./img/welcome_card.jpg";
 
@@ -13,8 +20,8 @@ class CreateNew extends Component {
     }
 
     return (
-
       <div className="welcome">
+        <h4>Please add a new task</h4>
         <Card id="welcome" style={{ margin: "auto" }}>
           <CardTitle
             style={{
@@ -25,7 +32,7 @@ class CreateNew extends Component {
           >
             New task
           </CardTitle>
-          <CardText>Please add a new task to track.</CardText>
+          <CardText />
           <form id="task" onSubmit={onAdd}>
             <Textfield
               onChange={onTitleChange}
@@ -51,10 +58,6 @@ class CreateNew extends Component {
           <br />
         </Card>
       </div>
-
-
-
-
     );
   }
 }

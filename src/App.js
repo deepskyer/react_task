@@ -19,18 +19,18 @@ class App extends Component {
       toTasklist: false,
       isLoaded: false,
       things: [],
-      thing:null
+      thing: null
     };
   }
 
   onRead = () => {
-    this.setState({ unrated: this.state.unrated - 1});
+    this.setState({ unrated: this.state.unrated - 1 });
   };
 
-  updateRating = (item) => {
+  updateRating = item => {
     const remain = this.state.things.filter(t => t._id !== item._id);
-    this.setState({things: [...remain, item]})
-  }
+    this.setState({ things: [...remain, item] });
+  };
 
   handleDirect = event => {
     this.setState({ toTasklist: false });
@@ -74,7 +74,7 @@ class App extends Component {
           isLoaded: true,
           things: things,
           unrated: things.filter(thing => thing.rating === null).length,
-          toTasklist: true,
+          toTasklist: true
         });
       });
   };
@@ -129,8 +129,11 @@ class App extends Component {
           <Layout>
             <Header
               title="{ Tasks Tracker }"
-              style={{ color: "#8DA9B0", background: "#fff",
-              borderBottom: "1px solid #E3EDF0" }}
+              style={{
+                color: "#8DA9B0",
+                background: "#fff",
+                borderBottom: "1px solid #E3EDF0"
+              }}
               scroll
             >
               <Navigation>
@@ -154,7 +157,7 @@ class App extends Component {
               </Navigation>
             </Header>
 
-            <Drawer id = "sidebar" title="{ Tasks Tracker }">
+            <Drawer id="sidebar" title="{ Tasks Tracker }">
               <Navigation>
                 <Link to="/">Home</Link>
                 <Link to="/create">Create</Link>
@@ -215,7 +218,7 @@ class App extends Component {
                   things={things}
                   thing={thing}
                   onRead={this.onRead}
-                  onUpdate ={this.updateRating}
+                  onUpdate={this.updateRating}
                 />
               )}
             />
