@@ -46,7 +46,7 @@ class Review extends Component {
           key={thing._id}
           style={{
             borderRadius: "7px",
-            marginLeft: "0px",
+            marginLeft: "8px",
             marginRight: "18px"
           }}
         >
