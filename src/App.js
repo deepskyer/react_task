@@ -137,7 +137,7 @@ class App extends Component {
               scroll
             >
               <Navigation>
-                <Link to="/">Home</Link>
+                <Link to="/">Tasks</Link>
                 <Link to="/create">Create</Link>
                 <Link to="/review">
                   <Badge
@@ -159,9 +159,16 @@ class App extends Component {
 
             <Drawer id="sidebar" title="{ Tasks Tracker }">
               <Navigation>
-                <Link to="/">Home</Link>
-                <Link to="/create">Create</Link>
+                <Link to="/">
+                  <Icon name="assignment" />
+                  Tasks
+                </Link>
+                <Link to="/create">
+                  <Icon name="add_circle" />
+                  Create
+                </Link>
                 <Link to="/review">
+                  <Icon name="new_releases" />
                   <Badge
                     text={
                       this.state.unrated === null || this.state.unrated === 0
@@ -172,7 +179,10 @@ class App extends Component {
                     Update
                   </Badge>
                 </Link>
-                <Link to="/statistic">Statistic</Link>
+                <Link to="/statistic">
+                  <Icon name="assessment" />
+                  Statistic
+                </Link>
               </Navigation>
             </Drawer>
 

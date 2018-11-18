@@ -25,3 +25,10 @@
   margin-left: 6px;
   margin-right: 6px;
 }
+
+#sidebar i {
+  margin-right: 10px;
+  font-size: 16px;
+  position: relative;
+  top: -1px;
+}

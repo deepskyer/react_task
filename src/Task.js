@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Chip, FABButton, Icon, Spinner, DataTable, TableHeader } from "react-mdl";
+import {
+  Chip,
+  FABButton,
+  Icon,
+  Spinner,
+  DataTable,
+  TableHeader
+} from "react-mdl";
 import { Link } from "react-router-dom";
 
 class Task extends Component {
@@ -10,21 +17,22 @@ class Task extends Component {
   render() {
     const { error, isLoaded, things } = this.props;
 
-
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return (
+        <div style={{ margin: "300px auto", width: "200px" }}>
+          Error: {error.message}
+        </div>
+      );
     } else if (!isLoaded) {
       return (
         <div style={{ margin: "300px auto", width: "200px" }}>
           <Spinner />
         </div>
       );
-    }
-    else if (things.length === 0) {
+    } else if (things.length === 0) {
       return (
         <div style={{ margin: "300px auto", width: "200px" }}>
           No task. Please create one.
-
           <Link to="/create" onClick={this.props.onNew}>
             <FABButton
               id="plus"
@@ -35,11 +43,9 @@ class Task extends Component {
               <Icon name="add" />
             </FABButton>
           </Link>
-
         </div>
       );
-    }
-    else {
+    } else {
       return (
         <div className="task">
           <h4>The list of all tasks.</h4>
@@ -61,7 +67,34 @@ class Task extends Component {
             >
               Details
             </TableHeader>
-            <TableHeader name="rating"  cellFormatter={(rating)=><Chip style={{backgroundColor: `${rating===1?"#48B7ED":rating===2?"#7ED450":rating===3?"#6450D4":"#FF6268"}`, color: "white"}}>{rating===1?"Begin":rating===2?"WIP":rating===3?"Done":"Not started"}</Chip> } tooltip="Status of the tasks">
+            <TableHeader
+              name="rating"
+              cellFormatter={rating => (
+                <Chip
+                  style={{
+                    backgroundColor: `${
+                      rating === 1
+                        ? "#48B7ED"
+                        : rating === 2
+                        ? "#7ED450"
+                        : rating === 3
+                        ? "#6450D4"
+                        : "#FF6268"
+                    }`,
+                    color: "white"
+                  }}
+                >
+                  {rating === 1
+                    ? "Begin"
+                    : rating === 2
+                    ? "WIP"
+                    : rating === 3
+                    ? "Done"
+                    : "Not started"}
+                </Chip>
+              )}
+              tooltip="Status of the tasks"
+            >
               Status
             </TableHeader>
           </DataTable>
