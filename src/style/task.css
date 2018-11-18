@@ -77,6 +77,9 @@
 
 #plus {
   background-image: linear-gradient(to bottom right, #d503ef, #6c77e1);
+  -webkit-box-shadow: 0px 2px 13px -1px rgba(164, 113, 225, 1);
+  -moz-box-shadow: 0px 2px 13px -1px rgba(164, 113, 225, 1);
+  box-shadow: 0px 2px 13px -1px rgba(164, 113, 225, 1);
 }
 
 #plus i {
@@ -84,9 +87,9 @@
 }
 
 #plus:hover {
-  -webkit-box-shadow: 0px 2px 13px -1px rgba(164, 113, 225, 1);
-  -moz-box-shadow: 0px 2px 13px -1px rgba(164, 113, 225, 1);
-  box-shadow: 0px 2px 13px -1px rgba(164, 113, 225, 1);
+  -webkit-box-shadow: 0px 2px 13px 3px rgba(164, 113, 225, 1);
+  -moz-box-shadow: 0px 2px 13px 3px rgba(164, 113, 225, 1);
+  box-shadow: 0px 2px 13px 3px rgba(164, 113, 225, 1);
 }
 
 #delete {
